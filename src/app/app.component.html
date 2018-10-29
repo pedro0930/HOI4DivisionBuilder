@@ -1,20 +1,130 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hearts of Iron 4 Division Builder</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+    <table class="table border">
+      <tr class="border">
+        <th class="border">Base Stats</th>
+        <th class="border">Combat Stats</th>
+      </tr>
+      <tr class="border">
+        <td class="border">Max Speed<span class="float-right">{{MaxSpeed}}</span></td>
+        <td class="border">Soft Attack<span class="float-right">{{SoftAttack}}</span></td>
+      </tr>
+      <tr class="border">
+        <td class="border">HP<span class="float-right">{{HP}}</span></td>
+        <td class="border">Hard Attack<span class="float-right">{{HardAttack}}</span></td>
+      </tr>
+      <tr class="border">
+        <td class="border">Organization<span class="float-right">{{Organization}}</span></td>
+        <td class="border">Air Attack<span class="float-right">{{AirAttack}}</span></td>
+      </tr>
+      <tr class="border">
+        <td class="border">Recovery Rate<span class="float-right">{{RecoveryRate}}</span></td>
+        <td class="border">Defense<span class="float-right">{{Defense}}</span></td>
+      </tr>
+      <tr class="border">
+        <td class="border">Reconnaissance<span class="float-right">{{Reconnaissance}}</span></td>
+        <td class="border">Breakthrough<span class="float-right">{{Breakthrough}}</span></td>
+      </tr>
+      <tr class="border">
+        <td class="border">Suppression<span class="float-right">{{Suppression}}</span></td>
+        <td class="border">Armor<span class="float-right">{{Armor}}</span></td>
+      </tr>
+      <tr class="border">
+        <td class="border">Supply use<span class="float-right">{{SupplyUse}}</span></td>
+        <td class="border">Piercing<span class="float-right">{{Piercing}}</span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="border">Combat Width<span class="float-right">{{CombatWidth}}</span></td>
+      </tr>
+    </table>
+		<div class="row">
+			<div class="col-2 border">
+				<h3 class="text-center">Support Companies</h3>
+			</div>
+			<div class="col-10 border align-middle">
+				<h3 class="text-center" style="padding-top: 20px">Line Battalions</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2 border">
+        <input (click)="openCompany(content, 1)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+        <input (click)="openCompany(content, 2)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+        <input (click)="openCompany(content, 3)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+        <input (click)="openCompany(content, 4)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+        <input (click)="openCompany(content, 5)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+			</div>
+			<div class="col-2 border">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+			</div>
+			<div class="col-2 border">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+			</div>
+			<div class="col-2 border">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+			</div>
+			<div class="col-2 border">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+			</div>
+			<div class="col-2 border">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+			</div>
+		</div>
+  </div>
 
+
+  <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Select a Support Company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input (click)="SelectCompany('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
+          <input (click)="SelectCompany('engineer')" type="image" src="assets/img/Engineer.png">
+          <input (click)="SelectCompany('hospital')" type="image" src="assets/img/Field_hospital.png">
+          <input (click)="SelectCompany('signal')" type="image" src="assets/img/Signal_company.png">
+          <input (click)="SelectCompany('AT')" type="image" src="assets/img/Support_anti-tank.png">
+          <input (click)="SelectCompany('arty')" type="image" src="assets/img/Support_artillery.png">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div>
+    </ng-template>
+    <hr>
+    
+    <pre>{{closeResult}}</pre>
+</body>
+</html>
