@@ -9,14 +9,9 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  closeResult: string;
+  closeResult: any;
   constructor(private modalService: NgbModal){}
 
-  openCompany(content, slot) {
-    this.SelectedCompanySlotId = slot;
-    this.modalService.open(content, {ariaLabelledBy: 'CompanySelect'
-    });
-  }
 
 
   SelectedCompanySlotId: number;
@@ -57,14 +52,58 @@ export class AppComponent implements OnInit {
     this.Piercing = 0;
     this.CombatWidth = 0;
 
-    this.SupportCompanies = [null, null, null, null, null]
-    this.LineBattalions = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,]
+    this.SupportCompanies = [{Name: "empty"}, {Name: "empty"}, {Name: "empty"}, {Name: "empty"}, {Name: "empty"}]
+    this.LineBattalions = []
   }
+
+  openCompany(content, SelectedCompanySlotId) {
+
+    this.SelectedCompanySlotId = SelectedCompanySlotId
+    console.log(SelectedCompanySlotId)
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = this.SelectCompany(result);
+    });
+  }
+
 
   SelectCompany(Company){
     console.log("Selected Company ", Company)
     if(Company == "arty"){
-      
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: "arty",
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      })
     }
+    this.UpdateDivisionStats()
+  }
+  UpdateDivisionStats(){
+    var AvgOrganization = 0
+    for(var i = 0; i< this.SupportCompanies.length; i++){
+      if(this.SupportCompanies[i].Name != "empty"){
+        this.HP += this.SupportCompanies[i].HP
+        AvgOrganization += this.SupportCompanies[i].Organization
+        this.SupplyUse += this.SupportCompanies[i].SupplyUse;
+        this.SoftAttack += this.SupportCompanies[i].SoftAttack;
+        this.HardAttack += this.SupportCompanies[i].HardAttack;
+        this.AirAttack += this.SupportCompanies[i].AirAttack;
+        this.Defense += this.SupportCompanies[i].Defense;
+        this.Breakthrough += this.SupportCompanies[i].Breakthrough;
+        this.Piercing = 0;
+      }
+    }
+    for(var i = 0; i< this.LineBattalions.length; i++){
+
+    }
+    AvgOrganization = AvgOrganization/(this.SupportCompanies.length+this.LineBattalions.length)
+    this.Organization = AvgOrganization
+    console.log(this.SupportCompanies)
   }
 }
