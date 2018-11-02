@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
 
 
   SelectedCompanySlotId: number;
+  SelectedBattalionSlotId: number;
 
   MaxSpeed: number;
   HP: number;
@@ -54,20 +55,30 @@ export class AppComponent implements OnInit {
 
     this.SupportCompanies = [{Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'} ];
     this.LineBattalions = [];
+    for (let i = 0; i < 25; i++) {
+      this.LineBattalions.push({Name: 'empty'});
+    }
+    console.log(this.LineBattalions.length);
   }
 
   openCompany(content, SelectedCompanySlotId) {
-
     this.SelectedCompanySlotId = SelectedCompanySlotId;
     console.log(SelectedCompanySlotId);
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-company-title'}).result.then((result) => {
       this.closeResult = this.SelectCompany(result);
     });
   }
 
+  openBattalion(content, SelectedBattalionSlotId) {
+    this.SelectedBattalionSlotId = SelectedBattalionSlotId;
+    this.modalService.open(content, {ariaLabelledBy: 'modal-battalion-title'}).result.then((result) => {
+      this.closeResult = this.SelectBattalion(result);
+    });
+  }
 
   SelectCompany(Company) {
     console.log('Selected Company ', Company);
+    // All stats are currently placeholder
     if (Company === 'arty') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
         Name: 'arty',
@@ -81,10 +92,114 @@ export class AppComponent implements OnInit {
         AirAttack: 0,
         SupplyUse: 0.16
       });
+    } else if (Company === 'AT') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'AT',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Company === 'hospital') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'hospital',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Company === 'engineer') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'engineer',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Company === 'signal') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'signal',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Company === 'rocket') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'rocket',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Company === 'clear') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'empty',
+      });
     }
+
     this.UpdateDivisionStats();
   }
+
+  SelectBattalion(Battalion) {
+    if (Battalion === 'arty') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'arty',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    }
+  }
+
   UpdateDivisionStats() {
+    // Clear all stats due to how clearing unit currently work
+    this.MaxSpeed = 0;
+    this.HP = 0;
+    this.Organization = 0;
+    this.RecoveryRate = 0;
+    this.Reconnaissance = 0;
+    this.Suppression = 0;
+    this.SupplyUse = 0;
+    this.SoftAttack = 0;
+    this.HardAttack = 0;
+    this.AirAttack = 0;
+    this.Defense = 0;
+    this.Breakthrough = 0;
+    this.Armor = 0;
+    this.Piercing = 0;
+    this.CombatWidth = 0;
     let AvgOrganization = 0;
     for (let i = 0; i < this.SupportCompanies.length; i++) {
       if (this.SupportCompanies[i].Name !== 'empty') {

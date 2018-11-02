@@ -56,66 +56,75 @@
 			</div>
 		</div>
 		<div class="row">
-			<div *ngFor="let Company of SupportCompanies; index as i" class="col-2 border">
-          <input *ngIf="Company.Name=='empty'" (click)="openCompany(content, i)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input *ngIf="Company.Name=='arty'" (click)="openCompany(content, i)" type="image" src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2">
-          <input *ngIf="Company.Name=='AT'" (click)="openCompany(content, i)" type="image" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2">
-          <input *ngIf="Company.Name=='rocket'" (click)="openCompany(content, i)" type="image" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2">
-          <input *ngIf="Company.Name=='hospital'"(click)="openCompany(content, i)" type="image" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
+			<div class="col-2 border">
+        <div *ngFor="let Company of SupportCompanies; index as i">
+            <input *ngIf="Company.Name =='empty'" (click)="openCompany(company, i)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+            <input *ngIf="Company.Name =='arty'" (click)="openCompany(company, i)" type="image" src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='AT'" (click)="openCompany(company, i)" type="image" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
+        </div>
+
       </div>
 			<div class="col-2 border">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+        <div *ngFor="let Battalion of LineBattalions; index as i">
+            <input *ngIf="Battalion.Name == 'empty' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+        </div>
 			</div>
 			<div class="col-2 border">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          <div *ngFor="let Battalion of LineBattalions; index as i">
+              <input *ngIf="Battalion.Name == 'empty' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          </div>
 			</div>
 			<div class="col-2 border">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          <div *ngFor="let Battalion of LineBattalions; index as i">
+              <input *ngIf="Battalion.Name == 'empty' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          </div>
 			</div>
 			<div class="col-2 border">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          <div *ngFor="let Battalion of LineBattalions; index as i">
+              <input *ngIf="Battalion.Name == 'empty' && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          </div>
 			</div>
 			<div class="col-2 border">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-          <input type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          <div *ngFor="let Battalion of LineBattalions; index as i">
+              <input *ngIf="Battalion.Name == 'empty' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+          </div>
 			</div>
 		</div>
   </div>
 
 
-  <ng-template #content let-modal>
+  <ng-template #company let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Select a Support Company</h4>
+        <h4 class="modal-title" id="modal-company-title">Select a Support Company</h4>
       </div>
       <div class="modal-body">
-          <input (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
-          <input (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
-          <input (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
-          <input (click)="modal.close('signal')" type="image" src="assets/img/Signal_company.png">
-          <input (click)="modal.close('AT')" type="image" src="assets/img/Support_anti-tank.png">
-          <input (click)="modal.close('arty')" type="image" src="assets/img/Support_artillery.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'rocket'" (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'engineer'" (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'hospital'" (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'signal'" (click)="modal.close('signal')" type="image" src="assets/img/Signal_company.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'AT'" (click)="modal.close('AT')" type="image" src="assets/img/Support_anti-tank.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'arty'" (click)="modal.close('arty')" type="image" src="assets/img/Support_artillery.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'empty'" (click)="modal.close('clear')" type="image" src="assets/img/empty.jpg">
       </div>
-   
     </ng-template>
-    <hr>
+
+
+    <ng-template #battalion let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-battalion-title">Select a Line Battalion</h4>
+        </div>
+        <div class="modal-body">
+            <input (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
+            <input (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
+            <input (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
+            <input (click)="modal.close('signal')" type="image" src="assets/img/Signal_company.png">
+            <input (click)="modal.close('AT')" type="image" src="assets/img/Support_anti-tank.png">
+            <input (click)="modal.close('arty')" type="image" src="assets/img/Support_artillery.png">
+            <input *ngIf="LineBattalions[SelectedBattalionSlotId].Name != 'empty'" (click)="modal.close('clear')" type="image" src="assets/img/empty.jpg">
+        </div>
+      </ng-template>
 </body>
 </html>
