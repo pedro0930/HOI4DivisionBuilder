@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
 
   SelectedCompanySlotId: number;
-  
+
   MaxSpeed: number;
   HP: number;
   Organization: number;
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   Armor: number;
   Piercing: number;
   CombatWidth: number;
-  
+
   SupportCompanies: any[];
   LineBattalions: any[];
 
@@ -52,25 +52,25 @@ export class AppComponent implements OnInit {
     this.Piercing = 0;
     this.CombatWidth = 0;
 
-    this.SupportCompanies = [{Name: "empty"}, {Name: "empty"}, {Name: "empty"}, {Name: "empty"}, {Name: "empty"}]
-    this.LineBattalions = []
+    this.SupportCompanies = [{Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'} ];
+    this.LineBattalions = [];
   }
 
   openCompany(content, SelectedCompanySlotId) {
 
-    this.SelectedCompanySlotId = SelectedCompanySlotId
-    console.log(SelectedCompanySlotId)
+    this.SelectedCompanySlotId = SelectedCompanySlotId;
+    console.log(SelectedCompanySlotId);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = this.SelectCompany(result);
     });
   }
 
 
-  SelectCompany(Company){
-    console.log("Selected Company ", Company)
-    if(Company == "arty"){
+  SelectCompany(Company) {
+    console.log('Selected Company ', Company);
+    if (Company === 'arty') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
-        Name: "arty",
+        Name: 'arty',
         HP: 20,
         Organization: 0,
         SoftAttack: 14.4,
@@ -80,16 +80,16 @@ export class AppComponent implements OnInit {
         Pierce: 5,
         AirAttack: 0,
         SupplyUse: 0.16
-      })
+      });
     }
-    this.UpdateDivisionStats()
+    this.UpdateDivisionStats();
   }
-  UpdateDivisionStats(){
-    var AvgOrganization = 0
-    for(var i = 0; i< this.SupportCompanies.length; i++){
-      if(this.SupportCompanies[i].Name != "empty"){
-        this.HP += this.SupportCompanies[i].HP
-        AvgOrganization += this.SupportCompanies[i].Organization
+  UpdateDivisionStats() {
+    let AvgOrganization = 0;
+    for (let i = 0; i < this.SupportCompanies.length; i++) {
+      if (this.SupportCompanies[i].Name !== 'empty') {
+        this.HP += this.SupportCompanies[i].HP;
+        AvgOrganization += this.SupportCompanies[i].Organization;
         this.SupplyUse += this.SupportCompanies[i].SupplyUse;
         this.SoftAttack += this.SupportCompanies[i].SoftAttack;
         this.HardAttack += this.SupportCompanies[i].HardAttack;
@@ -99,11 +99,11 @@ export class AppComponent implements OnInit {
         this.Piercing = 0;
       }
     }
-    for(var i = 0; i< this.LineBattalions.length; i++){
+    for (let i = 0; i < this.LineBattalions.length; i++){
 
     }
-    AvgOrganization = AvgOrganization/(this.SupportCompanies.length+this.LineBattalions.length)
-    this.Organization = AvgOrganization
-    console.log(this.SupportCompanies)
+    AvgOrganization = AvgOrganization / (this.SupportCompanies.length + this.LineBattalions.length)
+    this.Organization = AvgOrganization;
+    console.log(this.SupportCompanies);
   }
 }
