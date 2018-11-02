@@ -10,7 +10,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent implements OnInit {
   closeResult: any;
-  constructor(private modalService: NgbModal){}
+  constructor(private modalService: NgbModal) {}
 
 
 
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   SupportCompanies: any[];
   LineBattalions: any[];
 
-  ngOnInit(){
+  ngOnInit() {
     this.MaxSpeed = 0;
     this.HP = 0;
     this.Organization = 0;
@@ -99,10 +99,10 @@ export class AppComponent implements OnInit {
         this.Piercing = 0;
       }
     }
-    for (let i = 0; i < this.LineBattalions.length; i++){
+    for (let i = 0; i < this.LineBattalions.length; i++) {
 
     }
-    AvgOrganization = AvgOrganization / (this.SupportCompanies.length + this.LineBattalions.length)
+    AvgOrganization = AvgOrganization / (this.SupportCompanies.length + this.LineBattalions.length);
     this.Organization = AvgOrganization;
     console.log(this.SupportCompanies);
   }
