@@ -16,7 +16,7 @@
         <th class="border">Combat Stats</th>
       </tr>
       <tr class="border">
-        <td class="border">Max Speed<span class="float-right">{{MaxSpeed}}</span></td>
+        <td class="border">Speed<span class="float-right">{{MaxSpeed}}</span></td>
         <td class="border">Soft Attack<span class="float-right">{{SoftAttack}}</span></td>
       </tr>
       <tr class="border">
@@ -66,7 +66,11 @@
             <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
             <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
             <input *ngIf="Company.Name =='signal'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Signal_company.png" class="d-block mx-auto mt-2 mb-2">
-        </div>
+            <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
+        
+          </div>
 
       </div>
 			<div class="col-2 border">
@@ -307,8 +311,12 @@
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'signal'" (click)="modal.close('signal')" type="image" src="assets/img/Signal_company.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'AT'" (click)="modal.close('AT')" type="image" src="assets/img/Support_anti-tank.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'arty'" (click)="modal.close('arty')" type="image" src="assets/img/Support_artillery.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'logistics'" (click)="modal.close('logistics')" type="image" src="assets/img/Logistics_company.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'maintenance'" (click)="modal.close('maintenance')" type="image" src="assets/img/Maintenance_company.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'MP'" (click)="modal.close('MP')" type="image" src="assets/img/Military_Police.png">
+
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'empty'" (click)="modal.close('clear')" type="image" src="assets/img/empty.jpg">
-      </div>
+        </div>
     </ng-template>
 
 
