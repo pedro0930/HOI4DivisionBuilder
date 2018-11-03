@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class="container">
+    <h1 class="d-flex justify-content-center">Hearts of Iron 4 Division Calculator</h1>
     <table class="table border">
       <tr class="border">
         <th class="border">Base Stats</th>
@@ -64,6 +65,7 @@
             <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
             <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
             <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
+            <input *ngIf="Company.Name =='signal'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Signal_company.png" class="d-block mx-auto mt-2 mb-2">
         </div>
 
       </div>
@@ -288,7 +290,9 @@
               <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
           </div>
 			</div>
-		</div>
+    </div>
+    <br>
+    <button type="button" (click)="clear()" class="btn btn-danger float-right">Clear</button>
   </div>
 
 

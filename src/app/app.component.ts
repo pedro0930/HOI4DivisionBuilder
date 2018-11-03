@@ -58,7 +58,15 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < 25; i++) {
       this.LineBattalions.push({Name: 'empty'});
     }
-    console.log(this.LineBattalions.length);
+  }
+
+  clear() {
+    this.SupportCompanies = [{Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'} ];
+    this.LineBattalions = [];
+    for (let i = 0; i < 25; i++) {
+      this.LineBattalions.push({Name: 'empty'});
+    }
+    this.UpdateDivisionStats();
   }
 
   openCompany(content, SelectedCompanySlotId) {
@@ -603,6 +611,10 @@ export class AppComponent implements OnInit {
         Pierce: 5,
         AirAttack: 0,
         SupplyUse: 0.16
+      });
+    } else if (Battalion === 'clear') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'empty',
       });
     }
     this.UpdateDivisionStats();
