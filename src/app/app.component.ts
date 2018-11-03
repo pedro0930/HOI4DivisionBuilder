@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
       this.closeResult = this.SelectBattalion(result);
     });
   }
-
+  // Need to update all unit stats
   SelectCompany(Company) {
     console.log('Selected Company ', Company);
     // All stats are currently placeholder
@@ -167,9 +167,433 @@ export class AppComponent implements OnInit {
   }
 
   SelectBattalion(Battalion) {
-    if (Battalion === 'arty') {
+    // Infantry
+    if (Battalion === 'Infantry') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
-        Name: 'arty',
+        Name: 'Infantry',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Rocket_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Rocket-artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Anti-tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Anti-tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Anti-Air') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Anti-Air',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Marine') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Marine',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Mountaineers') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Mountaineers',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Paratroop') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Paratroop',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Mobile
+    } else if (Battalion === 'Motorized') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Motorized',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Cavalry') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Cavalry',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Motorized_rocket') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Motorized_rocket',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Mechanized') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Mechanized',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Rocket_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Armored
+    } else if (Battalion === 'Light_tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Medium_tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Heavy_tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Super_heavy') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Super_heavy',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Modern_tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Modern_tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Light armored variant
+    } else if (Battalion === 'Light_tank_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Light_tank_anti-tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Light_tank_anti-air') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-air',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Medium variant
+    } else if (Battalion === 'Medium_tank_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Medium_tank_anti-tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Medium_tank_anti-air') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-air',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Heavy Variant
+    } else if (Battalion === 'Heavy_tank_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Heavy_tank_anti-tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_anti-tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Heavy_tank_anti-air') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_anti-air',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Super Heavy Variant
+    } else if (Battalion === 'Super_heavy_tank_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Super_heavy_tank_artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Super_heavy_tank_anti-tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Super_heavy_tank_anti-tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Super_heavy_tank_anti-air') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Super_heavy_tank_anti-air',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+      // Modern Variant
+    } else if (Battalion === 'Modern_tank_artillery') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Modern_tank_artillery',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Modern_tank_anti-tank') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Modern_tank_anti-tank',
+        HP: 20,
+        Organization: 0,
+        SoftAttack: 14.4,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 5,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.16
+      });
+    } else if (Battalion === 'Modern_tank_anti-air') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Modern_tank_anti-air',
         HP: 20,
         Organization: 0,
         SoftAttack: 14.4,
@@ -181,6 +605,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.16
       });
     }
+    this.UpdateDivisionStats();
   }
 
   UpdateDivisionStats() {
@@ -211,11 +636,19 @@ export class AppComponent implements OnInit {
         this.AirAttack += this.SupportCompanies[i].AirAttack;
         this.Defense += this.SupportCompanies[i].Defense;
         this.Breakthrough += this.SupportCompanies[i].Breakthrough;
-        this.Piercing = 0;
       }
     }
     for (let i = 0; i < this.LineBattalions.length; i++) {
-
+      if (this.LineBattalions[i].Name !== 'empty') {
+        this.HP += this.LineBattalions[i].HP;
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.AirAttack += this.LineBattalions[i].AirAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+      }
     }
     AvgOrganization = AvgOrganization / (this.SupportCompanies.length + this.LineBattalions.length);
     this.Organization = AvgOrganization;
