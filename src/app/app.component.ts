@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { registerLocaleData } from '@angular/common';
 
 
 @Component({
@@ -32,11 +33,16 @@ export class AppComponent implements OnInit {
   Armor: number;
   Piercing: number;
   CombatWidth: number;
+  ProductionCost: number;
+
+  SAPerProduction: number;
 
   SupportCompanies: any[];
   LineBattalions: any[];
 
   ngOnInit() {
+    this.SAPerProduction = 0;
+    this.ProductionCost = 0;
     this.MaxSpeed = 0;
     this.HP = 0;
     this.Organization = 0;
@@ -883,6 +889,8 @@ export class AppComponent implements OnInit {
     let CompanyNumber = 0;
     let AvgOrganization = 0;
 
+    this.ProductionCost = 0;
+    this.SAPerProduction = 0;
     this.MaxSpeed = 0;
     this.HP = 0;
     this.Organization = 0;
@@ -910,6 +918,7 @@ export class AppComponent implements OnInit {
         this.Defense += this.SupportCompanies[i].Defense;
         this.Breakthrough += this.SupportCompanies[i].Breakthrough;
         this.Piercing += this.SupportCompanies[i].Pierce;
+        this.ProductionCost += this.SupportCompanies[i].ProductionCost;
         if (MaxPiercing < this.SupportCompanies[i].Pierce) {
           MaxPiercing = this.SupportCompanies[i].Pierce;
         }
@@ -930,6 +939,7 @@ export class AppComponent implements OnInit {
         this.Suppression += this.LineBattalions[i].Suppression;
         this.Piercing += this.LineBattalions[i].Pierce;
         this.Armor += this.LineBattalions[i].Armor;
+        this.ProductionCost += this.LineBattalions[i].ProductionCost;
         if (this.LineBattalions[i].Speed < Speed) {
           Speed = this.LineBattalions[i].Speed;
         }
@@ -948,6 +958,7 @@ export class AppComponent implements OnInit {
       this.SupplyUse = Math.floor(this.SupplyUse * 100) / 100;
       this.Piercing = Math.floor(((this.Piercing / BattalionNumber) * 0.6 + MaxPiercing * 0.4) * 100) / 100;
       this.Armor = Math.floor(((this.Armor / BattalionNumber) * 0.7 + MaxArmor * 0.3) * 100) / 100;
+      this.SAPerProduction = Math.floor((this.SoftAttack / this.ProductionCost) * 100) / 100;
     }
 
 
