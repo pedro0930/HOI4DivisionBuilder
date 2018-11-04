@@ -51,6 +51,7 @@
         <td i18n class="border">Combat Width<span class="float-right">{{CombatWidth}}</span></td>
       </tr>
     </table>
+
 		<div class="row">
 			<div class="col-2 border">
 				<h3 i18n class="text-center">Support Companies</h3>
@@ -72,7 +73,6 @@
             <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
             <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
             <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
-        
           </div>
 
       </div>
@@ -297,6 +297,23 @@
               <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
           </div>
 			</div>
+    </div>
+    <div class="row border">Doctrine: 
+      <select>
+        <option (click)="Doctrine('None')">None</option>
+        <option (click)="Doctrine('MWLL')">Mobile Warfare L&L </option>
+        <option (click)="Doctrine('MWLR')">Mobile Warfare L&R </option>
+        <option (click)="Doctrine('MWRL')">Mobile Warfare R&L </option>
+        <option (click)="Doctrine('MWRR')">Mobile Warfare R&R </option>
+        <option (click)="Doctrine('SFLL')">Superior Firepower L&L</option>
+        <option (click)="Doctrine('SFLR')">Superior Firepower L&R</option>
+        <option (click)="Doctrine('SFRL')">Superior Firepower R&L</option>
+        <option (click)="Doctrine('SFRR')">Superior Firepower R&R</option>
+        <option (click)="Doctrine('GBL')">Grand Battleplan L</option>
+        <option (click)="Doctrine('GBR')">Grand Battleplan R</option>
+        <option (click)="Doctrine('MAL')">Mass Assault L</option>
+        <option (click)="Doctrine('MAR')">Mass Assault R</option>
+      </select>
     </div>
     <br>
     <button type="button" (click)="clear()" class="btn btn-danger float-right">Clear</button>

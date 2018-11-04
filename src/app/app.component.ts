@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
 
-
+  SelectedDoctrine: String;
   SelectedCompanySlotId: number;
   SelectedBattalionSlotId: number;
 
@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
   LineBattalions: any[];
 
   ngOnInit() {
+    this.SelectedDoctrine = 'None';
     this.SAPerProduction = 0;
     this.ProductionCost = 0;
     this.MaxSpeed = 0;
@@ -260,6 +261,7 @@ export class AppComponent implements OnInit {
     if (Battalion === 'Infantry') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Infantry',
+        Type: 'Infantry',
         HP: 25,
         Organization: 60,
         RecoveryRate: 0.3,
@@ -279,6 +281,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Artillery',
+        Type: 'Artillery',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -298,6 +301,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Rocket_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Rocket-artillery',
+        Type: 'Artillery',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -317,6 +321,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Anti-tank',
+        Type: 'Artillery',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -336,6 +341,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Anti-Air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Anti-Air',
+        Type: 'Artillery',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -355,6 +361,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Marine') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Marine',
+        Type: 'Infantry',
         HP: 20,
         Organization: 70,
         RecoveryRate: 0.4,
@@ -374,6 +381,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Mountaineers') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Mountaineers',
+        Type: 'Infantry',
         HP: 20,
         Organization: 70,
         RecoveryRate: 0.4,
@@ -393,6 +401,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Paratroop') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Paratroop',
+        Type: 'Infantry',
         HP: 22,
         Organization: 70,
         RecoveryRate: 0.4,
@@ -413,6 +422,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Motorized') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Motorized',
+        Type: 'Motorized',
         HP: 25,
         Organization: 70,
         RecoveryRate: 0.3,
@@ -432,6 +442,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Cavalry') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Cavalry',
+        Type: 'Cavalry',
         HP: 25,
         Organization: 70,
         RecoveryRate: 0.4,
@@ -451,6 +462,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Motorized_rocket') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Motorized_rocket',
+        Type: 'Motorized',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -470,6 +482,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Mechanized') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Mechanized',
+        Type: 'Motorized',
         HP: 30,
         Organization: 60,
         RecoveryRate: 0.3,
@@ -490,6 +503,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Light_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Light_tank',
+        Type: 'Armored',
         HP: 2,
         Organization: 10,
         RecoveryRate: 0.3,
@@ -509,6 +523,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Medium_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Medium_tank',
+        Type: 'Armored',
         HP: 2,
         Organization: 10,
         RecoveryRate: 0.3,
@@ -528,6 +543,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Heavy_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Heavy_tank',
+        Type: 'Armored',
         HP: 2,
         Organization: 10,
         RecoveryRate: 0.3,
@@ -547,6 +563,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Super_heavy') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Super_heavy',
+        Type: 'Armored',
         HP: 2,
         Organization: 10,
         RecoveryRate: 0.3,
@@ -566,6 +583,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Modern_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Modern_tank',
+        Type: 'Armored',
         HP: 2,
         Organization: 10,
         RecoveryRate: 0.3,
@@ -586,6 +604,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Light_tank_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Light_tank_artillery',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -605,6 +624,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Light_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Light_tank_anti-tank',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -624,6 +644,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Light_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Light_tank_anti-air',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -644,6 +665,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Medium_tank_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Medium_tank_artillery',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -663,6 +685,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Medium_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Medium_tank_anti-tank',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -682,6 +705,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Medium_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Medium_tank_anti-air',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -702,6 +726,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Heavy_tank_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Heavy_tank_artillery',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -721,6 +746,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Heavy_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Heavy_tank_anti-tank',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -740,6 +766,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Heavy_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Heavy_tank_anti-air',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -760,6 +787,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Super_heavy_tank_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Super_heavy_tank_artillery',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.1,
@@ -779,6 +807,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Super_heavy_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Super_heavy_tank_anti-tank',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -798,6 +827,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Super_heavy_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Super_heavy_tank_anti-air',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -818,6 +848,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Modern_tank_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Modern_tank_artillery',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -837,6 +868,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Modern_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Modern_tank_anti-tank',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -856,6 +888,7 @@ export class AppComponent implements OnInit {
     } else if (Battalion === 'Modern_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Modern_tank_anti-air',
+        Type: 'ArmoredVariant',
         HP: 0.6,
         Organization: 0,
         RecoveryRate: 0.3,
@@ -882,7 +915,7 @@ export class AppComponent implements OnInit {
 
   UpdateDivisionStats() {
     // Clear all stats due to how clearing unit currently work
-    let Speed = 4;
+    let Speed = 10;
     let MaxPiercing = 0;
     let MaxArmor = 0;
     let BattalionNumber = 0;
@@ -910,15 +943,51 @@ export class AppComponent implements OnInit {
       if (this.SupportCompanies[i].Name !== 'empty') {
         CompanyNumber++;
         this.HP += this.SupportCompanies[i].HP;
-        AvgOrganization += this.SupportCompanies[i].Organization;
-        this.SupplyUse += this.SupportCompanies[i].SupplyUse;
-        this.SoftAttack += this.SupportCompanies[i].SoftAttack;
-        this.HardAttack += this.SupportCompanies[i].HardAttack;
-        this.AirAttack += this.SupportCompanies[i].AirAttack;
-        this.Defense += this.SupportCompanies[i].Defense;
-        this.Breakthrough += this.SupportCompanies[i].Breakthrough;
-        this.Piercing += this.SupportCompanies[i].Pierce;
-        this.ProductionCost += this.SupportCompanies[i].ProductionCost;
+        if (this.SelectedDoctrine === 'SFLR') {
+          this.SoftAttack += this.SupportCompanies[i].SoftAttack * 1.1;
+          AvgOrganization += this.SupportCompanies[i].Organization;
+          this.HardAttack += this.SupportCompanies[i].HardAttack * 1.05;
+          this.SupplyUse += this.SupportCompanies[i].SupplyUse;
+          this.AirAttack += this.SupportCompanies[i].AirAttack;
+          this.Defense += this.SupportCompanies[i].Defense;
+          this.Breakthrough += this.SupportCompanies[i].Breakthrough;
+          this.Piercing += this.SupportCompanies[i].Pierce;
+          this.ProductionCost += this.SupportCompanies[i].ProductionCost;
+          this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+        } else if (this.SelectedDoctrine === 'SFRL') {
+          this.SoftAttack += this.SupportCompanies[i].SoftAttack * 1.5;
+          AvgOrganization += this.SupportCompanies[i].Organization + 20;
+          this.HardAttack += this.SupportCompanies[i].HardAttack;
+          this.SupplyUse += this.SupportCompanies[i].SupplyUse;
+          this.AirAttack += this.SupportCompanies[i].AirAttack;
+          this.Defense += this.SupportCompanies[i].Defense;
+          this.Breakthrough += this.SupportCompanies[i].Breakthrough;
+          this.Piercing += this.SupportCompanies[i].Pierce;
+          this.ProductionCost += this.SupportCompanies[i].ProductionCost;
+          this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+        } else if (this.SelectedDoctrine === 'SFRR') {
+          this.SoftAttack += this.SupportCompanies[i].SoftAttack * 1.6;
+          AvgOrganization += this.SupportCompanies[i].Organization + 20;
+          this.HardAttack += this.SupportCompanies[i].HardAttack * 1.05;
+          this.SupplyUse += this.SupportCompanies[i].SupplyUse;
+          this.AirAttack += this.SupportCompanies[i].AirAttack;
+          this.Defense += this.SupportCompanies[i].Defense;
+          this.Breakthrough += this.SupportCompanies[i].Breakthrough;
+          this.Piercing += this.SupportCompanies[i].Pierce;
+          this.ProductionCost += this.SupportCompanies[i].ProductionCost;
+          this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+        } else {
+          this.SoftAttack += this.SupportCompanies[i].SoftAttack;
+          AvgOrganization += this.SupportCompanies[i].Organization;
+          this.HardAttack += this.SupportCompanies[i].HardAttack;
+          this.SupplyUse += this.SupportCompanies[i].SupplyUse;
+          this.AirAttack += this.SupportCompanies[i].AirAttack;
+          this.Defense += this.SupportCompanies[i].Defense;
+          this.Breakthrough += this.SupportCompanies[i].Breakthrough;
+          this.Piercing += this.SupportCompanies[i].Pierce;
+          this.ProductionCost += this.SupportCompanies[i].ProductionCost;
+          this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+        }
         if (MaxPiercing < this.SupportCompanies[i].Pierce) {
           MaxPiercing = this.SupportCompanies[i].Pierce;
         }
@@ -927,15 +996,625 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < this.LineBattalions.length; i++) {
       if (this.LineBattalions[i].Name !== 'empty') {
         BattalionNumber++;
-        this.HP += this.LineBattalions[i].HP;
+        // No Doctrine
+        if (this.SelectedDoctrine === 'None') {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        // Doctrine bonus for Mobile Warfare LL
+    } else if (this.SelectedDoctrine === 'MWLL') {
+          if (this.LineBattalions[i].Type === 'Infantry') {
+            AvgOrganization += this.LineBattalions[i].Organization + 35;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+          } else if (this.LineBattalions[i].Type === 'Motorized') {
+            AvgOrganization += this.LineBattalions[i].Organization + 50;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.4;
+          } else if (this.LineBattalions[i].Type === 'Armored') {
+            AvgOrganization += this.LineBattalions[i].Organization + 4;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.2;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+          } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+            AvgOrganization += this.LineBattalions[i].Organization;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.2;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+          } else {
+            AvgOrganization += this.LineBattalions[i].Organization;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+          }
+        // Doctrine bonus for Mobile Warfare LR
+    } else if (this.SelectedDoctrine === 'MWLR') {
+          if (this.LineBattalions[i].Type === 'Infantry') {
+            AvgOrganization += this.LineBattalions[i].Organization + 45;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+          } else if (this.LineBattalions[i].Type === 'Motorized') {
+            AvgOrganization += this.LineBattalions[i].Organization + 60;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.4;
+          } else if (this.LineBattalions[i].Type === 'Armored') {
+            AvgOrganization += this.LineBattalions[i].Organization + 9;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.4;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+          } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+            AvgOrganization += this.LineBattalions[i].Organization;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.2;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+          } else {
+            AvgOrganization += this.LineBattalions[i].Organization;
+            this.SupplyUse += this.LineBattalions[i].SupplyUse;
+            this.SoftAttack += this.LineBattalions[i].SoftAttack;
+            this.HardAttack += this.LineBattalions[i].HardAttack;
+            this.Defense += this.LineBattalions[i].Defense;
+            this.Breakthrough += this.LineBattalions[i].Breakthrough;
+            this.CombatWidth += this.LineBattalions[i].CombatWidth;
+            this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+          }
+        // Doctrine bonus for Mobile Warfare RL
+    } else if (this.SelectedDoctrine === 'MWRL') {
+        if (this.LineBattalions[i].Type === 'Infantry') {
+          AvgOrganization += this.LineBattalions[i].Organization + 25;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else if (this.LineBattalions[i].Type === 'Motorized') {
+          AvgOrganization += this.LineBattalions[i].Organization + 30;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else if (this.LineBattalions[i].Type === 'Armored') {
+          AvgOrganization += this.LineBattalions[i].Organization + 7;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.4;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.2;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        }
+        // Doctrine bonus for Mobile Warfare RR
+    } else if (this.SelectedDoctrine === 'MWRR') {
+        if (this.LineBattalions[i].Type === 'Infantry') {
+          AvgOrganization += this.LineBattalions[i].Organization + 35;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else if (this.LineBattalions[i].Type === 'Motorized') {
+          AvgOrganization += this.LineBattalions[i].Organization + 40;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else if (this.LineBattalions[i].Type === 'Armored') {
+          AvgOrganization += this.LineBattalions[i].Organization + 12;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.6;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.4;
+        } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.2;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.4;
+        } else {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        }
+      // Doctrine bonus for Superior Firepower LL
+    } else if (this.SelectedDoctrine === 'SFLL') {
+        if (this.LineBattalions[i].Type === 'Infantry') {
+          AvgOrganization += this.LineBattalions[i].Organization + 15;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense * 1.2;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        } else if (this.LineBattalions[i].Type === 'Artillery') {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.1;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+        } else if (this.LineBattalions[i].Type === 'Motorized') {
+          AvgOrganization += this.LineBattalions[i].Organization + 5;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense * 1.2;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        } else if (this.LineBattalions[i].Type === 'Armored') {
+          AvgOrganization += this.LineBattalions[i].Organization + 5;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+          this.HardAttack += this.LineBattalions[i].HardAttack * 1.1;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+          AvgOrganization += this.LineBattalions[i].Organization + 5;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+          this.HardAttack += this.LineBattalions[i].HardAttack * 1.1;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        } else {
+          AvgOrganization += this.LineBattalions[i].Organization;
+          this.SupplyUse += this.LineBattalions[i].SupplyUse;
+          this.SoftAttack += this.LineBattalions[i].SoftAttack;
+          this.HardAttack += this.LineBattalions[i].HardAttack;
+          this.Defense += this.LineBattalions[i].Defense;
+          this.Breakthrough += this.LineBattalions[i].Breakthrough;
+          this.CombatWidth += this.LineBattalions[i].CombatWidth;
+          this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+        }
+      // Doctrine bonus for Superior Firepower LR
+    } else if (this.SelectedDoctrine === 'SFLR') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 20;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.05;
+        this.Defense += this.LineBattalions[i].Defense * 1.2;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else if (this.LineBattalions[i].Type === 'Artillery') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.05;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.2;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 10;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.25;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.1;
+        this.Defense += this.LineBattalions[i].Defense * 1.2;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 2;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else {
         AvgOrganization += this.LineBattalions[i].Organization;
         this.SupplyUse += this.LineBattalions[i].SupplyUse;
         this.SoftAttack += this.LineBattalions[i].SoftAttack;
         this.HardAttack += this.LineBattalions[i].HardAttack;
-        this.AirAttack += this.LineBattalions[i].AirAttack;
         this.Defense += this.LineBattalions[i].Defense;
         this.Breakthrough += this.LineBattalions[i].Breakthrough;
         this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+      // Doctrine bonus for Superior Firepower RL
+    } else if (this.SelectedDoctrine === 'SFRL') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 15;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense * 1.2;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 5;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense * 1.2;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 5;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.1;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.1;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+      // Doctrine bonus for Superior Firepower RR
+    } else if (this.SelectedDoctrine === 'SFRR') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 20;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.05;
+        this.Defense += this.LineBattalions[i].Defense * 1.2;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else if (this.LineBattalions[i].Type === 'Artillery') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.1;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.05;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 10;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.3;
+        this.HardAttack += this.LineBattalions[i].HardAttack * 1.05;
+        this.Defense += this.LineBattalions[i].Defense * 1.2;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 2;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack * 1.2;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.05;
+      } else {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+      // Doctrine bonus for Grand Battleplan L
+    } else if (this.SelectedDoctrine === 'GBL') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 20;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense * 1.1;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 25;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense * 1.1;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 2;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+      // Doctrine bonus for Grand Battleplan R
+    } else if (this.SelectedDoctrine === 'GBR') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 20;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense * 1.1;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 15;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense * 1.1;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 3;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.1;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.1;
+      } else {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+      // Doctrine bonus for Mass Assault L
+    } else if (this.SelectedDoctrine === 'MAL') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 10;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth - 0.4;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 15;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth - 0.4;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.1;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 5;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.1;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.1;
+      } else {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+      // Mass Assault R
+    } else if (this.SelectedDoctrine === 'MAR') {
+      if (this.LineBattalions[i].Type === 'Infantry') {
+        AvgOrganization += this.LineBattalions[i].Organization + 15;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth - 0.4;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.3;
+      } else if (this.LineBattalions[i].Type === 'Motorized') {
+        AvgOrganization += this.LineBattalions[i].Organization + 10;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough * 1.1;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth - 0.4;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate + 0.3;
+      } else if (this.LineBattalions[i].Type === 'Armored') {
+        AvgOrganization += this.LineBattalions[i].Organization + 2;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else if (this.LineBattalions[i].Type === 'ArmoredVariant') {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      } else {
+        AvgOrganization += this.LineBattalions[i].Organization;
+        this.SupplyUse += this.LineBattalions[i].SupplyUse;
+        this.SoftAttack += this.LineBattalions[i].SoftAttack;
+        this.HardAttack += this.LineBattalions[i].HardAttack;
+        this.Defense += this.LineBattalions[i].Defense;
+        this.Breakthrough += this.LineBattalions[i].Breakthrough;
+        this.CombatWidth += this.LineBattalions[i].CombatWidth;
+        this.RecoveryRate += this.LineBattalions[i].RecoveryRate;
+      }
+    }
+
+
+        // Stats not effected by doctrine
+        this.HP += this.LineBattalions[i].HP;
+        this.AirAttack += this.LineBattalions[i].AirAttack;
         this.Suppression += this.LineBattalions[i].Suppression;
         this.Piercing += this.LineBattalions[i].Pierce;
         this.Armor += this.LineBattalions[i].Armor;
@@ -953,15 +1632,30 @@ export class AppComponent implements OnInit {
     }
     if (BattalionNumber + CompanyNumber > 0) {
       AvgOrganization = Math.floor((AvgOrganization / (BattalionNumber + CompanyNumber) * 100) / 100);
+      this.HP = Math.floor(this.HP * 100) / 100;
+      this.SoftAttack = Math.floor(this.SoftAttack * 100) / 100;
+      this.HardAttack = Math.floor(this.HardAttack * 100) / 100;
+      this.RecoveryRate = Math.floor(this.RecoveryRate * 100) / 100;
       this.Organization = AvgOrganization;
       this.MaxSpeed = Speed;
       this.SupplyUse = Math.floor(this.SupplyUse * 100) / 100;
-      this.Piercing = Math.floor(((this.Piercing / BattalionNumber) * 0.6 + MaxPiercing * 0.4) * 100) / 100;
-      this.Armor = Math.floor(((this.Armor / BattalionNumber) * 0.7 + MaxArmor * 0.3) * 100) / 100;
+      this.Piercing = Math.floor(((this.Piercing / (BattalionNumber + CompanyNumber)) * 0.6 + MaxPiercing * 0.4) * 100) / 100;
+      this.Armor = Math.floor(((this.Armor / (BattalionNumber + + CompanyNumber)) * 0.7 + MaxArmor * 0.3) * 100) / 100;
       this.SAPerProduction = Math.floor((this.SoftAttack / this.ProductionCost) * 100) / 100;
+      // Hack to modify speed if mobile warfare
+      if (this.MaxSpeed > 4) {
+        // tslint:disable-next-line:max-line-length
+        if (this.SelectedDoctrine === 'MWLL' || this.SelectedDoctrine === 'MWLR' || this.SelectedDoctrine === 'MWRL' || this.SelectedDoctrine === 'MWRR') {
+          this.MaxSpeed *= 1.1;
+        }
+      }
     }
 
 
     console.log(this.SupportCompanies);
+  }
+  Doctrine(Doctrine) {
+    this.clear();
+    this.SelectedDoctrine = Doctrine;
   }
 }
