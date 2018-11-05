@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
 
+  Background: number;
   SelectedDoctrine: String;
   SelectedCompanySlotId: number;
   SelectedBattalionSlotId: number;
@@ -41,6 +42,7 @@ export class AppComponent implements OnInit {
   LineBattalions: any[];
 
   ngOnInit() {
+    this.Background = Math.floor(Math.random() * Math.floor(6));
     this.SelectedDoctrine = 'None';
     this.SAPerProduction = 0;
     this.ProductionCost = 0;

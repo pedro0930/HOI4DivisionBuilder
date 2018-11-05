@@ -8,317 +8,329 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container">
-    <h1 class="d-flex justify-content-center">Hearts of Iron 4 Division Calculator</h1>
-    <table class="table border">
-      <tr class="border">
-        <th i18n class="border">Base Stats</th>
-        <th i18n class="border">Combat Stats</th>
-        <th i18n class="border">Custom Stats</th>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">Speed<span class="float-right">{{MaxSpeed}}</span></td>
-        <td i18n class="border">Soft Attack<span class="float-right">{{SoftAttack}}</span></td>
-        <td i18n class="border">Production Cost<span class="float-right">{{ProductionCost}}</span></td>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">HP<span class="float-right">{{HP}}</span></td>
-        <td i18n class="border">Hard Attack<span class="float-right">{{HardAttack}}</span></td>
-        <td i18n class="border">Soft Attack/Production<span class="float-right">{{SAPerProduction}}</span></td>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">Organization<span class="float-right">{{Organization}}</span></td>
-        <td i18n class="border">Air Attack<span class="float-right">{{AirAttack}}</span></td>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">Recovery Rate<span class="float-right">{{RecoveryRate}}</span></td>
-        <td i18n class="border">Defense<span class="float-right">{{Defense}}</span></td>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">Reconnaissance<span class="float-right">{{Reconnaissance}}</span></td>
-        <td i18n class="border">Breakthrough<span class="float-right">{{Breakthrough}}</span></td>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">Suppression<span class="float-right">{{Suppression}}</span></td>
-        <td i18n class="border">Armor<span class="float-right">{{Armor}}</span></td>
-      </tr>
-      <tr class="border">
-        <td i18n class="border">Supply use<span class="float-right">{{SupplyUse}}</span></td>
-        <td i18n class="border">Piercing<span class="float-right">{{Piercing}}</span></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td i18n class="border">Combat Width<span class="float-right">{{CombatWidth}}</span></td>
-      </tr>
-    </table>
-
-		<div class="row">
-			<div class="col-2 border">
-				<h3 i18n class="text-center">Support Companies</h3>
-			</div>
-			<div class="col-10 border align-middle">
-				<h3 i18n class="text-center" style="padding-top: 20px">Line Battalions</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-2 border">
-        <div *ngFor="let Company of SupportCompanies; index as i">
-            <input *ngIf="Company.Name =='empty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-            <input *ngIf="Company.Name =='arty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='AT'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='signal'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Signal_company.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
-          </div>
-
-      </div>
-			<div class="col-2 border">
-        <div *ngFor="let Battalion of LineBattalions; index as i">
-            <input *ngIf="Battalion.Name == 'empty' && i <= 4" (click)="openBattalion(battalion, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Infantry' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Rocket-artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Anti-Air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Marine' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Mountaineers' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Paratroop' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
-            
-            <input *ngIf="Battalion.Name == 'Motorized' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Cavalry' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Motorized_rocket' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Mechanized' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
-            
-            <input *ngIf="Battalion.Name == 'Light_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Medium_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Heavy_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Super_heavy' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Modern_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
-            
-            <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-           
-            <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-
-            <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-
-            <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-
-            <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-            <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-        </div>
-			</div>
-			<div class="col-2 border">
-          <div *ngFor="let Battalion of LineBattalions; index as i">
-              <input *ngIf="Battalion.Name == 'empty' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Infantry' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Marine' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mountaineers' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Paratroop' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Motorized' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Cavalry' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Motorized_rocket' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mechanized' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-             
-              <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+  <div class="card bg-dark">
+    <img class="img-fluid" src="assets/img/background{{Background}}.jpg">
+    <div class="card-img-overlay">
+      <div class="container bg-light" style="opacity: 0.9">
+        <h1 class="d-flex justify-content-center">Hearts of Iron 4 Division Calculator</h1>
+        <table class="table border">
+          <tr class="border">
+            <th i18n class="border">Base Stats</th>
+            <th i18n class="border">Combat Stats</th>
+            <th i18n class="border">Custom Stats</th>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">Speed<span class="float-right">{{MaxSpeed}}</span></td>
+            <td i18n class="border">Soft Attack<span class="float-right">{{SoftAttack}}</span></td>
+            <td i18n class="border">Production Cost<span class="float-right">{{ProductionCost}}</span></td>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">HP<span class="float-right">{{HP}}</span></td>
+            <td i18n class="border">Hard Attack<span class="float-right">{{HardAttack}}</span></td>
+            <td i18n class="border">Soft Attack/Production<span class="float-right">{{SAPerProduction}}</span></td>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">Organization<span class="float-right">{{Organization}}</span></td>
+            <td i18n class="border">Air Attack<span class="float-right">{{AirAttack}}</span></td>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">Recovery Rate<span class="float-right">{{RecoveryRate}}</span></td>
+            <td i18n class="border">Defense<span class="float-right">{{Defense}}</span></td>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">Reconnaissance<span class="float-right">{{Reconnaissance}}</span></td>
+            <td i18n class="border">Breakthrough<span class="float-right">{{Breakthrough}}</span></td>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">Suppression<span class="float-right">{{Suppression}}</span></td>
+            <td i18n class="border">Armor<span class="float-right">{{Armor}}</span></td>
+          </tr>
+          <tr class="border">
+            <td i18n class="border">Supply use<span class="float-right">{{SupplyUse}}</span></td>
+            <td i18n class="border">Piercing<span class="float-right">{{Piercing}}</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td i18n class="border">Combat Width<span class="float-right">{{CombatWidth}}</span></td>
+          </tr>
+        </table>
+        <table class="table">
+          <thead>
+            <tr class=" row">
+            <div class="col-2">
+              <h4 i18n class="text-center">Support</h4>
             </div>
-			</div>
-			<div class="col-2 border">
-          <div *ngFor="let Battalion of LineBattalions; index as i">
-              <input *ngIf="Battalion.Name == 'empty' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Infantry' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Marine' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mountaineers' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Paratroop' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Motorized' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Cavalry' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Motorized_rocket' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mechanized' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-             
-              <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+            <div class="col-10">
+              <h4 i18n class="text-center">Line Battalions</h4>
+            </div>
+            </tr>
+          </thead>
+          <div class="row">
+            <div class="col-2 border">
+              <div *ngFor="let Company of SupportCompanies; index as i">
+                  <input *ngIf="Company.Name =='empty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
+                  <input *ngIf="Company.Name =='arty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='AT'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='signal'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Signal_company.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
+                </div>
+            </div>
+            <div class="col-2 border">
+              <div *ngFor="let Battalion of LineBattalions; index as i">
+                  <input *ngIf="Battalion.Name == 'empty' && i <= 4" (click)="openBattalion(battalion, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Infantry' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Rocket-artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Anti-Air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Marine' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Mountaineers' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Paratroop' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                  <input *ngIf="Battalion.Name == 'Motorized' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Cavalry' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Motorized_rocket' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Mechanized' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                  <input *ngIf="Battalion.Name == 'Light_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Medium_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Heavy_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Super_heavy' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Modern_tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                  <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                
+                  <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
 
-          </div>
-			</div>
-			<div class="col-2 border">
-          <div *ngFor="let Battalion of LineBattalions; index as i">
-              <input *ngIf="Battalion.Name == 'empty' && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Infantry' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Rocket-artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-Air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Marine' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mountaineers' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Paratroop' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Motorized' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Cavalry' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Motorized_rocket' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mechanized' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-             
-              <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-          </div>
-			</div>
-			<div class="col-2 border">
-          <div *ngFor="let Battalion of LineBattalions; index as i">
-              <input *ngIf="Battalion.Name == 'empty' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Infantry' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Marine' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mountaineers' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Paratroop' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Motorized' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Cavalry' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Motorized_rocket' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Mechanized' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
-              
-              <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-             
-              <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-  
-              <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-              <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
-          </div>
-			</div>
-    </div>
-    <div class="row border">Doctrine: 
-      <select>
-        <option (click)="Doctrine('None')">None</option>
-        <option (click)="Doctrine('MWLL')">Mobile Warfare L&L </option>
-        <option (click)="Doctrine('MWLR')">Mobile Warfare L&R </option>
-        <option (click)="Doctrine('MWRL')">Mobile Warfare R&L </option>
-        <option (click)="Doctrine('MWRR')">Mobile Warfare R&R </option>
-        <option (click)="Doctrine('SFLL')">Superior Firepower L&L</option>
-        <option (click)="Doctrine('SFLR')">Superior Firepower L&R</option>
-        <option (click)="Doctrine('SFRL')">Superior Firepower R&L</option>
-        <option (click)="Doctrine('SFRR')">Superior Firepower R&R</option>
-        <option (click)="Doctrine('GBL')">Grand Battleplan L</option>
-        <option (click)="Doctrine('GBR')">Grand Battleplan R</option>
-        <option (click)="Doctrine('MAL')">Mass Assault L</option>
-        <option (click)="Doctrine('MAR')">Mass Assault R</option>
-      </select>
-    </div>
-    <br>
-    <button type="button" (click)="clear()" class="btn btn-danger float-right">Clear</button>
-  </div>
+                  <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
 
+                  <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+
+                  <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+              </div>
+            </div>
+            <div class="col-2 border">
+                <div *ngFor="let Battalion of LineBattalions; index as i">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Infantry' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Marine' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mountaineers' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Paratroop' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Motorized' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Cavalry' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Motorized_rocket' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mechanized' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                    <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                  </div>
+            </div>
+            <div class="col-2 border">
+                <div *ngFor="let Battalion of LineBattalions; index as i">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Infantry' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Marine' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mountaineers' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Paratroop' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Motorized' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Cavalry' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Motorized_rocket' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mechanized' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                    <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+
+                </div>
+            </div>
+            <div class="col-2 border">
+                <div *ngFor="let Battalion of LineBattalions; index as i">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Infantry' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Rocket-artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-Air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Marine' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mountaineers' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Paratroop' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Motorized' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Cavalry' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Motorized_rocket' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mechanized' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                    <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                </div>
+            </div>
+            <div class="col-2 border">
+                <div *ngFor="let Battalion of LineBattalions; index as i">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Infantry' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Marine' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mountaineers' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mountaineers.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Paratroop' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Paratroop.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Motorized' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Cavalry' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Cavalry.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Motorized_rocket' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Motorized_rocket_brigade.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Mechanized' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Mechanized.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank.png" class="d-block mx-auto mt-2 mb-2">
+                    
+                    <input *ngIf="Battalion.Name == 'Light_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Light_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Light_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  
+                    <input *ngIf="Battalion.Name == 'Medium_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Medium_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Medium_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Heavy_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Super_heavy_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Super_heavy_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+        
+                    <input *ngIf="Battalion.Name == 'Modern_tank_artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'Modern_tank_anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Modern_tank_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                </div>
+            </div>
+            <tr class="row col-10">
+              <tbody>
+              <p class="text-justify m-2">Doctrine: 
+                <span>                
+                  <select>
+                    <option (click)="Doctrine('None')">None</option>
+                    <option (click)="Doctrine('MWLL')">Mobile Warfare L&L </option>
+                    <option (click)="Doctrine('MWLR')">Mobile Warfare L&R </option>
+                    <option (click)="Doctrine('MWRL')">Mobile Warfare R&L </option>
+                    <option (click)="Doctrine('MWRR')">Mobile Warfare R&R </option>
+                    <option (click)="Doctrine('SFLL')">Superior Firepower L&L</option>
+                    <option (click)="Doctrine('SFLR')">Superior Firepower L&R</option>
+                    <option (click)="Doctrine('SFRL')">Superior Firepower R&L</option>
+                    <option (click)="Doctrine('SFRR')">Superior Firepower R&R</option>
+                    <option (click)="Doctrine('GBL')">Grand Battleplan L</option>
+                    <option (click)="Doctrine('GBR')">Grand Battleplan R</option>
+                    <option (click)="Doctrine('MAL')">Mass Assault L</option>
+                    <option (click)="Doctrine('MAR')">Mass Assault R</option>
+                  </select>
+                </span> 
+              </p>
+            </tbody>
+            </tr>
+          </div>
+          <br>
+        </table>
+        <button type="button" (click)="clear()" class="btn btn-danger float-right">Clear</button>
+      </div>
+    </div>
+</div>
 
   <ng-template #company let-modal>
       <div class="modal-header">
