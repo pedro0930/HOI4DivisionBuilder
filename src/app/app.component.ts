@@ -949,6 +949,7 @@ export class AppComponent implements OnInit {
     let BattalionNumber = 0;
     let CompanyNumber = 0;
     let AvgOrganization = 0;
+    let HasRecon = false;
 
     this.ProductionCost = 0;
     this.SAPerProduction = 0;
@@ -970,6 +971,9 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < this.SupportCompanies.length; i++) {
       if (this.SupportCompanies[i].Name !== 'empty') {
         CompanyNumber++;
+        if (this.SupportCompanies[i].Name === 'Recon') {
+          HasRecon = true;
+        }
         this.HP += this.SupportCompanies[i].HP;
         if (this.SelectedDoctrine === 'SFLR') {
           this.SoftAttack += this.SupportCompanies[i].SoftAttack * 1.1;
@@ -1670,6 +1674,12 @@ export class AppComponent implements OnInit {
       this.Piercing = Math.floor(((this.Piercing / (BattalionNumber + CompanyNumber)) * 0.6 + MaxPiercing * 0.4) * 100) / 100;
       this.Armor = Math.floor(((this.Armor / (BattalionNumber + + CompanyNumber)) * 0.7 + MaxArmor * 0.3) * 100) / 100;
       this.SAPerProduction = Math.floor((this.SoftAttack / this.ProductionCost) * 100) / 100;
+      if (HasRecon === true) {
+        this.Reconnaissance += 1;
+      }
+      if (this.SelectedDoctrine === 'SFLR' || this.SelectedDoctrine === 'SFRR' || this.SelectedDoctrine === 'GBR') {
+        this.Reconnaissance += 1;
+      }
       // Hack to modify speed if mobile warfare
       if (this.MaxSpeed > 4) {
         // tslint:disable-next-line:max-line-length
