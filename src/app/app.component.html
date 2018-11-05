@@ -13,55 +13,57 @@
     <div class="card-img-overlay">
       <div class="container bg-light" style="opacity: 0.9">
         <h1 class="d-flex justify-content-center">Hearts of Iron 4 Division Calculator</h1>
+        <button (click)="setLang('en')">EN</button>
+        <button (click)="setLang('zh-Hant')">中文</button>
         <table class="table border">
           <tr class="border">
-            <th i18n class="border">Base Stats</th>
-            <th i18n class="border">Combat Stats</th>
-            <th i18n class="border">Custom Stats</th>
+            <th i18n class="border">{{"Base_stats" | translate}}</th>
+            <th i18n class="border">{{"Combat_stats" | translate}}</th>
+            <th i18n class="border">{{"Custom_stats" | translate}}</th>
           </tr>
           <tr class="border">
-            <td i18n class="border">Speed<span class="float-right">{{MaxSpeed}}</span></td>
-            <td i18n class="border">Soft Attack<span class="float-right">{{SoftAttack}}</span></td>
-            <td i18n class="border">Production Cost<span class="float-right">{{ProductionCost}}</span></td>
+            <td i18n class="border">{{"Speed" | translate}}<span class="float-right">{{MaxSpeed}}</span></td>
+            <td i18n class="border">{{"Soft_attack" | translate}}<span class="float-right">{{SoftAttack}}</span></td>
+            <td i18n class="border">{{"Production_cost" | translate}}<span class="float-right">{{ProductionCost}}</span></td>
           </tr>
           <tr class="border">
-            <td i18n class="border">HP<span class="float-right">{{HP}}</span></td>
-            <td i18n class="border">Hard Attack<span class="float-right">{{HardAttack}}</span></td>
-            <td i18n class="border">Soft Attack/Production<span class="float-right">{{SAPerProduction}}</span></td>
+            <td i18n class="border">{{"HP" | translate}}<span class="float-right">{{HP}}</span></td>
+            <td i18n class="border">{{"Hard_attack" | translate}}<span class="float-right">{{HardAttack}}</span></td>
+            <td i18n class="border">{{"Soft_attack_production" | translate}}<span class="float-right">{{SAPerProduction}}</span></td>
           </tr>
           <tr class="border">
-            <td i18n class="border">Organization<span class="float-right">{{Organization}}</span></td>
-            <td i18n class="border">Air Attack<span class="float-right">{{AirAttack}}</span></td>
+            <td i18n class="border">{{"Organization" | translate}}<span class="float-right">{{Organization}}</span></td>
+            <td i18n class="border">{{"Air_attack" | translate}}<span class="float-right">{{AirAttack}}</span></td>
           </tr>
           <tr class="border">
-            <td i18n class="border">Recovery Rate<span class="float-right">{{RecoveryRate}}</span></td>
-            <td i18n class="border">Defense<span class="float-right">{{Defense}}</span></td>
+            <td i18n class="border">{{"Recovery_rate" | translate}}<span class="float-right">{{RecoveryRate}}</span></td>
+            <td i18n class="border">{{"Defense" | translate}}<span class="float-right">{{Defense}}</span></td>
           </tr>
           <tr class="border">
-            <td i18n class="border">Reconnaissance<span class="float-right">{{Reconnaissance}}</span></td>
-            <td i18n class="border">Breakthrough<span class="float-right">{{Breakthrough}}</span></td>
+            <td i18n class="border">{{"Reconnaissance" | translate}}<span class="float-right">{{Reconnaissance}}</span></td>
+            <td i18n class="border">{{"Breakthrough" | translate}}<span class="float-right">{{Breakthrough}}</span></td>
           </tr>
           <tr class="border">
-            <td i18n class="border">Suppression<span class="float-right">{{Suppression}}</span></td>
-            <td i18n class="border">Armor<span class="float-right">{{Armor}}</span></td>
+            <td i18n class="border">{{"Suppression" | translate}}<span class="float-right">{{Suppression}}</span></td>
+            <td i18n class="border">{{"Armor" | translate}}<span class="float-right">{{Armor}}</span></td>
           </tr>
           <tr class="border">
-            <td i18n class="border">Supply use<span class="float-right">{{SupplyUse}}</span></td>
-            <td i18n class="border">Piercing<span class="float-right">{{Piercing}}</span></td>
+            <td i18n class="border">{{"Supply_use" | translate}}<span class="float-right">{{SupplyUse}}</span></td>
+            <td i18n class="border">{{"Piercing" | translate}}<span class="float-right">{{Piercing}}</span></td>
           </tr>
           <tr>
             <td></td>
-            <td i18n class="border">Combat Width<span class="float-right">{{CombatWidth}}</span></td>
+            <td i18n class="border">{{"Combat_width" | translate}}<span class="float-right">{{CombatWidth}}</span></td>
           </tr>
         </table>
         <table class="table">
           <thead>
             <tr class=" row">
             <div class="col-2">
-              <h4 i18n class="text-center">Support</h4>
+              <h4 i18n class="text-center">{{"Support" | translate}}</h4>
             </div>
             <div class="col-10">
-              <h4 i18n class="text-center">Line Battalions</h4>
+              <h4 i18n class="text-center">{{"Line_battalion" | translate}}</h4>
             </div>
             </tr>
           </thead>
@@ -303,22 +305,22 @@
             </div>
             <tr class="row col-10">
               <tbody>
-              <p class="text-justify m-2">Doctrine: 
+              <p class="text-justify m-2">{{"Doctrine" | translate}}: 
                 <span>                
                   <select>
-                    <option (click)="Doctrine('None')">None</option>
-                    <option (click)="Doctrine('MWLL')">Mobile Warfare L&L </option>
-                    <option (click)="Doctrine('MWLR')">Mobile Warfare L&R </option>
-                    <option (click)="Doctrine('MWRL')">Mobile Warfare R&L </option>
-                    <option (click)="Doctrine('MWRR')">Mobile Warfare R&R </option>
-                    <option (click)="Doctrine('SFLL')">Superior Firepower L&L</option>
-                    <option (click)="Doctrine('SFLR')">Superior Firepower L&R</option>
-                    <option (click)="Doctrine('SFRL')">Superior Firepower R&L</option>
-                    <option (click)="Doctrine('SFRR')">Superior Firepower R&R</option>
-                    <option (click)="Doctrine('GBL')">Grand Battleplan L</option>
-                    <option (click)="Doctrine('GBR')">Grand Battleplan R</option>
-                    <option (click)="Doctrine('MAL')">Mass Assault L</option>
-                    <option (click)="Doctrine('MAR')">Mass Assault R</option>
+                    <option (click)="Doctrine('None')">{{"None" | translate}}</option>
+                    <option (click)="Doctrine('MWLL')">{{"MobileWarfareL&L" | translate}} </option>
+                    <option (click)="Doctrine('MWLR')">{{"MobileWarfareL&R" | translate}} </option>
+                    <option (click)="Doctrine('MWRL')">{{"MobileWarfareR&L" | translate}} </option>
+                    <option (click)="Doctrine('MWRR')">{{"MobileWarfareR&R" | translate}} </option>
+                    <option (click)="Doctrine('SFLL')">{{"SuperiorFirePowerL&L" | translate}}</option>
+                    <option (click)="Doctrine('SFLR')">{{"SuperiorFirePowerL&R" | translate}}</option>
+                    <option (click)="Doctrine('SFRL')">{{"SuperiorFirePowerR&L" | translate}}</option>
+                    <option (click)="Doctrine('SFRR')">{{"SuperiorFirePowerR&R" | translate}}</option>
+                    <option (click)="Doctrine('GBL')">{{"GrandBattleplanL" | translate}}</option>
+                    <option (click)="Doctrine('GBR')">{{"GrandBattleplanR" | translate}}</option>
+                    <option (click)="Doctrine('MAL')">{{"MassassaultL" | translate}}</option>
+                    <option (click)="Doctrine('MAR')">{{"MassassaultR" | translate}}</option>
                   </select>
                 </span> 
               </p>
@@ -327,14 +329,14 @@
           </div>
           <br>
         </table>
-        <button type="button" (click)="clear()" class="btn btn-danger float-right">Clear</button>
+        <button type="button" (click)="clear()" class="btn btn-danger float-right">{{"Clear" | translate}}</button>
       </div>
     </div>
 </div>
 
   <ng-template #company let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-company-title">Select a Support Company</h4>
+        <h4 class="modal-title" id="modal-company-title">{{"SelectSupport" | translate}}</h4>
       </div>
       <div class="modal-body">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'rocket'" (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
@@ -354,10 +356,10 @@
 
     <ng-template #battalion let-modal>
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-battalion-title">Select a Line Battalion</h4>
+          <h4 class="modal-title" id="modal-battalion-title">{{"SelectBattalion" | translate}}</h4>
         </div>
         <div class="modal-body">
-            <p i18n>Infantry</p>
+            <p i18n>{{"Infantry" | translate}}</p>
             <input (click)="modal.close('Infantry')" type="image" src="assets/img/Infantry.png">
             <input (click)="modal.close('Artillery')" type="image" src="assets/img/Artillery.png">
             <input (click)="modal.close('Rocket_artillery')" type="image" src="assets/img/Rocket_artillery.png">
@@ -367,20 +369,20 @@
             <input (click)="modal.close('Mountaineers')" type="image" src="assets/img/Mountaineers.png">
             <input (click)="modal.close('Paratroop')" type="image" src="assets/img/Paratroop.png">
             <hr>
-            <p i18n>Mobile</p>
+            <p i18n>{{"Mobile" | translate}}</p>
             <input (click)="modal.close('Motorized')" type="image" src="assets/img/Motorized.png">
             <input (click)="modal.close('Cavalry')" type="image" src="assets/img/Cavalry.png">
             <input (click)="modal.close('Motorized_rocket')" type="image" src="assets/img/Motorized_rocket_brigade.png">
             <input (click)="modal.close('Mechanized')" type="image" src="assets/img/Mechanized.png">
             <hr>
-            <p i18n>Armored</p>
+            <p i18n>{{"Armored" | translate}}</p>
             <input (click)="modal.close('Light_tank')" type="image" src="assets/img/Light_tank.png">
             <input (click)="modal.close('Medium_tank')" type="image" src="assets/img/Medium_tank.png">
             <input (click)="modal.close('Heavy_tank')" type="image" src="assets/img/Heavy_tank.png">
             <input (click)="modal.close('Super_heavy')" type="image" src="assets/img/Super_heavy_tank.png">
             <input (click)="modal.close('Modern_tank')" type="image" src="assets/img/Modern_tank.png">
             <hr>
-            <p i18n>Armored Variant</p>
+            <p i18n>{{"ArmoredVariant" | translate}}</p>
             <input (click)="modal.close('Light_tank_artillery')" type="image" src="assets/img/Light_tank_artillery.png">
             <input (click)="modal.close('Light_tank_anti-tank')" type="image" src="assets/img/Light_tank_anti-tank.png">
             <input (click)="modal.close('Light_tank_anti-air')" type="image" src="assets/img/Light_tank_anti-air.png">

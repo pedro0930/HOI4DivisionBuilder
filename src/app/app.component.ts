@@ -1,7 +1,8 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { registerLocaleData } from '@angular/common';
+import { TranslateService } from './translate.service';
 
 
 @Component({
@@ -10,9 +11,13 @@ import { registerLocaleData } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  closeResult: any;
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private translate: TranslateService) {
+    translate.use('en').then(() => {
+      console.log(translate.data);
+    });
+  }
 
+  closeResult: any;
 
   Background: number;
   SelectedDoctrine: String;
@@ -67,6 +72,10 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < 25; i++) {
       this.LineBattalions.push({Name: 'empty'});
     }
+  }
+
+  setLang(lang: string) {
+    this.translate.use(lang);
   }
 
   clear() {
@@ -916,7 +925,7 @@ export class AppComponent implements OnInit {
   }
 
   UpdateDivisionStats() {
-    // Clear all stats due to how clearing unit currently work
+    // Clear all stats due to how clearing units currently work
     let Speed = 10;
     let MaxPiercing = 0;
     let MaxArmor = 0;
