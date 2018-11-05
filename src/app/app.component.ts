@@ -258,6 +258,23 @@ export class AppComponent implements OnInit {
         Armor: 0,
         ProductionCost: 52,
       });
+    } else if (Company === 'Recon') {
+        this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+          Name: 'Recon',
+          HP: 2,
+          Organization: 20,
+          RecoveryRate: 0.3,
+          Suppression: 0,
+          SoftAttack: 0.3,
+          HardAttack: 0,
+          Defense: 10,
+          Breakthrough: 1,
+          Pierce: 4,
+          AirAttack: 0,
+          SupplyUse: 0.02,
+          Armor: 0,
+          ProductionCost: 52,
+        });
     } else if (Company === 'clear') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
         Name: 'empty',

@@ -72,6 +72,7 @@
               <div *ngFor="let Company of SupportCompanies; index as i">
                   <input *ngIf="Company.Name =='empty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
                   <input *ngIf="Company.Name =='arty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='Recon'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Recon.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Company.Name =='AT'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
@@ -339,6 +340,7 @@
         <h4 class="modal-title" id="modal-company-title">{{"SelectSupport" | translate}}</h4>
       </div>
       <div class="modal-body">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'Recon'" (click)="modal.close('Recon')" type="image" src="assets/img/Recon.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'rocket'" (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'engineer'" (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'hospital'" (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
