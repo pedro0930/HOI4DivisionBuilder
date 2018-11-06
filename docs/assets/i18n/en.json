@@ -49,5 +49,6 @@
     "LightTankTech": "Light Tank Tech (affects variants)",
     "MediumTankTech": "Medium Tank Tech (affects variants)",
     "HeavyTankTech": "Heavy Tank Tech (affects variants)",
-    "VariantNote": "Note: Variant level are tied to tank level."
+    "VariantNote": "Note: Variant level are tied to tank level.",
+    "HardnessRating": "Hardness"
   }

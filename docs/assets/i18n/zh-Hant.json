@@ -49,5 +49,6 @@
     "LightTankTech": "輕戰車等級 (包含延伸類)",
     "MediumTankTech": "中戰車等級 (包含延伸類)",
     "HeavyTankTech": "重戰車等級 (包含延伸類)",
-    "VariantNote": "戰車延伸版本等級由戰車科技等級決定"
+    "VariantNote": "戰車延伸版本等級由戰車科技等級決定",
+    "HardnessRating": "硬度"
   }
