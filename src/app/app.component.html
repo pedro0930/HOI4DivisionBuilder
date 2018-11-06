@@ -84,6 +84,7 @@
                   <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='AA'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_anti-air.png" class="d-block mx-auto mt-2 mb-2">
                 </div>
             </div>
             <div class="col-2 border">
@@ -386,6 +387,7 @@
       </div>
       <div class="modal-body">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'Recon'" (click)="modal.close('Recon')" type="image" src="assets/img/Recon.png">
+          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'AA'" (click)="modal.close('AA')" type="image" src="assets/img/Support_anti-air.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'rocket'" (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'engineer'" (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'hospital'" (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
@@ -395,7 +397,7 @@
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'logistics'" (click)="modal.close('logistics')" type="image" src="assets/img/Logistics_company.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'maintenance'" (click)="modal.close('maintenance')" type="image" src="assets/img/Maintenance_company.png">
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'MP'" (click)="modal.close('MP')" type="image" src="assets/img/Military_Police.png">
-
+        
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'empty'" (click)="modal.close('clear')" type="image" src="assets/img/empty.jpg">
         </div>
     </ng-template>
