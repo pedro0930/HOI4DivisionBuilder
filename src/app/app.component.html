@@ -8,16 +8,16 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="card bg-dark">
-    <img class="img-fluid" src="assets/img/background{{Background}}.jpg">
+  <div class="card">
+    <img class="img-fluid d-none d-lg-block" src="assets/img/background{{Background}}.jpg">
     <div class="card-img-overlay">
-      <div class="container bg-light" style="opacity: 0.9">
+      <div class="container-fluid bg-light" id="OpacityControl" style="opacity: 0.9">
         <div class="float-right">
             <img (click)="setLang('en')" src="assets/img/us.png">
             <img (click)="setLang('zh-Hant')" src="assets/img/tw.png">
         </div>
-        <h1 class="d-flex justify-content-center">Hearts of Iron 4 Division Calculator</h1>
-        <table class="table border">
+          <h1 class="justify-content-center text-center d-none d-lg-block">Hearts of Iron 4 Division Calculator</h1>
+        <table class="table">
           <tr class="border">
             <th i18n class="border">{{"Base_stats" | translate}}</th>
             <th i18n class="border">{{"Combat_stats" | translate}}</th>
@@ -54,14 +54,14 @@
             <td i18n class="border">{{"Piercing" | translate}}<span class="float-right">{{Piercing}}</span></td>
           </tr>
           <tr>
-            <td i18n class="border">{{"HardnessRating" | translate}}<span class="float-right"><meter value="{{HardnessDisplay}}"></meter>{{Hardness}} %</span></td>
+            <td i18n class="border">{{"HardnessRating" | translate}}<span class="float-right"><meter style="width: 200px" value="{{HardnessDisplay}}"></meter>{{Hardness}} %</span></td>
             <td i18n class="border">{{"Combat_width" | translate}}<span class="float-right">{{CombatWidth}}</span></td>
             <td></td>
           </tr>
         </table>
         <table class="table">
           <thead>
-            <tr class=" row">
+            <tr class=" row m-2">
             <div class="col-2">
               <h4 i18n class="text-center">{{"Support" | translate}}</h4>
             </div>
@@ -70,26 +70,26 @@
             </div>
             </tr>
           </thead>
-          <div class="row">
+          <div class="row m-2">
             <div class="col-2 border">
               <div *ngFor="let Company of SupportCompanies; index as i">
-                  <input *ngIf="Company.Name =='empty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2">
-                  <input *ngIf="Company.Name =='arty'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='Recon'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Recon.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='AT'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='signal'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Signal_company.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
-                  <input *ngIf="Company.Name =='AA'"(click)="openCompany(company, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/Support_anti-air.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='empty'" (click)="openCompany(company, i)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 img-fluid">
+                  <input *ngIf="Company.Name =='arty'" (click)="openCompany(company, i)" type="image"  src="assets/img/Support_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='Recon'" (click)="openCompany(company, i)" type="image" src="assets/img/Recon.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='AT'" (click)="openCompany(company, i)" type="image" src="assets/img/Support_anti-tank.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='rocket'" (click)="openCompany(company, i)" type="image" src="assets/img/Support_rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='hospital'"(click)="openCompany(company, i)" type="image" src="assets/img/Field_hospital.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='engineer'"(click)="openCompany(company, i)" type="image" src="assets/img/Engineer.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='signal'"(click)="openCompany(company, i)" type="image" src="assets/img/Signal_company.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='logistics'"(click)="openCompany(company, i)" type="image" src="assets/img/Logistics_company.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='maintenance'"(click)="openCompany(company, i)" type="image" src="assets/img/Maintenance_company.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='MP'"(click)="openCompany(company, i)" type="image" src="assets/img/Military_Police.png" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Company.Name =='AA'"(click)="openCompany(company, i)" type="image" src="assets/img/Support_anti-air.png" class="d-block mx-auto mt-2 mb-2">
                 </div>
             </div>
             <div class="col-2 border">
               <div *ngFor="let Battalion of LineBattalions; index as i">
-                  <input *ngIf="Battalion.Name == 'empty' && i <= 4" (click)="openBattalion(battalion, i)" type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                  <input *ngIf="Battalion.Name == 'empty' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2 img-fluid">
                   <input *ngIf="Battalion.Name == 'Infantry' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Battalion.Name == 'Artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
                   <input *ngIf="Battalion.Name == 'Rocket-artillery' && i <= 4" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
@@ -133,7 +133,7 @@
             </div>
             <div class="col-2 border">
                 <div *ngFor="let Battalion of LineBattalions; index as i">
-                    <input *ngIf="Battalion.Name == 'empty' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2 img-fluid">
                     <input *ngIf="Battalion.Name == 'Infantry' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 5 && i <= 9" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
@@ -177,7 +177,7 @@
             </div>
             <div class="col-2 border">
                 <div *ngFor="let Battalion of LineBattalions; index as i">
-                    <input *ngIf="Battalion.Name == 'empty' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2 img-fluid">
                     <input *ngIf="Battalion.Name == 'Infantry' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 10 && i <= 14" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
@@ -222,7 +222,7 @@
             </div>
             <div class="col-2 border">
                 <div *ngFor="let Battalion of LineBattalions; index as i">
-                    <input *ngIf="Battalion.Name == 'empty' && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2 img-fluid">
                     <input *ngIf="Battalion.Name == 'Infantry' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Rocket-artillery' && i && i >= 15 && i <= 19" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
@@ -266,10 +266,10 @@
             </div>
             <div class="col-2 border">
                 <div *ngFor="let Battalion of LineBattalions; index as i">
-                    <input *ngIf="Battalion.Name == 'empty' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)"  type="image" style="min-height: 42px; min-width: 76px" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2">
-                    <input *ngIf="Battalion.Name == 'Infantry' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2">
-                    <input *ngIf="Battalion.Name == 'Artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2">
-                    <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2">
+                    <input *ngIf="Battalion.Name == 'empty' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)"  type="image" src="assets/img/empty.jpg" class="d-block mx-auto mt-2 mb-2 img-fluid">
+                    <input *ngIf="Battalion.Name == 'Infantry' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Infantry.png" class="d-block mx-auto mt-2 mb-2 img-fluid">
+                    <input *ngIf="Battalion.Name == 'Artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Artillery.png" class="d-block mx-auto mt-2 mb-2 img-fluid">
+                    <input *ngIf="Battalion.Name == 'Rocket-artillery' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Rocket_artillery.png" class="d-block mx-auto mt-2 mb-2 img-fluid">
                     <input *ngIf="Battalion.Name == 'Anti-tank' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-tank.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Anti-Air' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Anti-air.png" class="d-block mx-auto mt-2 mb-2">
                     <input *ngIf="Battalion.Name == 'Marine' && i >= 20 && i <= 25" (click)="openBattalion(battalion, i)" type="image" src="assets/img/Marine.png" class="d-block mx-auto mt-2 mb-2">

@@ -13,3 +13,7 @@
     display: table;
     content: " ";
   }
+
+  #OpacityControl {
+    opacity: 0.9
+  }
