@@ -139,6 +139,40 @@ export class AppComponent implements OnInit {
         Armor: 0,
         ProductionCost: 42,
       });
+    } else if (Company === 'arty39') {
+        this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+          Name: 'arty',
+          HP: 0.2,
+          Organization: 0,
+          RecoveryRate: 0.1,
+          Suppression: 0,
+          SoftAttack: 21,
+          HardAttack: 1.2,
+          Defense: 9,
+          Breakthrough: 4.2,
+          Pierce: 5,
+          AirAttack: 0,
+          SupplyUse: 0.16,
+          Armor: 0,
+          ProductionCost: 48,
+        });
+      } else if (Company === 'arty42') {
+        this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+          Name: 'arty',
+          HP: 0.2,
+          Organization: 0,
+          RecoveryRate: 0.1,
+          Suppression: 0,
+          SoftAttack: 30.6,
+          HardAttack: 1.2,
+          Defense: 10.8,
+          Breakthrough: 4.8,
+          Pierce: 5,
+          AirAttack: 0,
+          SupplyUse: 0.16,
+          Armor: 0,
+          ProductionCost: 54,
+        });
     } else if (Company === 'AT') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
         Name: 'AT',
@@ -150,11 +184,45 @@ export class AppComponent implements OnInit {
         HardAttack: 7.5,
         Defense: 2,
         Breakthrough: 0,
-        Pierce: 37.5,
+        Pierce: 63.8,
         AirAttack: 0,
         SupplyUse: 0.08,
         Armor: 0,
         ProductionCost: 96,
+      });
+    } else if (Company === 'AT39') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'AT',
+        HP: 0.2,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 2,
+        HardAttack: 13.2,
+        Defense: 2,
+        Breakthrough: 0,
+        Pierce: 92.4,
+        AirAttack: 0,
+        SupplyUse: 0.08,
+        Armor: 0,
+        ProductionCost: 120,
+      });
+    } else if (Company === 'AT42') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'AT',
+        HP: 0.2,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 2,
+        HardAttack: 24,
+        Defense: 2,
+        Breakthrough: 0,
+        Pierce: 135,
+        AirAttack: 0,
+        SupplyUse: 0.08,
+        Armor: 0,
+        ProductionCost: 144,
       });
     } else if (Company === 'hospital') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -223,6 +291,23 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.16,
         Armor: 0,
         ProductionCost: 96,
+      });
+    } else if (Company === 'rocket43') {
+      this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+        Name: 'rocket',
+        HP: 0.2,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 30.4,
+        HardAttack: 0.5,
+        Defense: 7.5,
+        Breakthrough: 6,
+        Pierce: 2,
+        AirAttack: 0,
+        SupplyUse: 0.16,
+        Armor: 0,
+        ProductionCost: 120,
       });
     } else if (Company === 'logistics') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -304,10 +389,44 @@ export class AppComponent implements OnInit {
           Defense: 2.4,
           Breakthrough: 0.6,
           Pierce: 25,
-          AirAttack: 13.6,
-          SupplyUse: 0.02,
+          AirAttack: 15.2,
+          SupplyUse: 0.1,
           Armor: 0,
           ProductionCost: 80,
+        });
+      } else if (Company === 'AA39') {
+        this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+          Name: 'AA',
+          HP: 0.2,
+          Organization: 0,
+          RecoveryRate: 0.1,
+          Suppression: 0,
+          SoftAttack: 2.1,
+          HardAttack: 6.6,
+          Defense: 2.4,
+          Breakthrough: 0.6,
+          Pierce: 60,
+          AirAttack: 22.5,
+          SupplyUse: 0.1,
+          Armor: 0,
+          ProductionCost: 100,
+        });
+      } else if (Company === 'AA42') {
+        this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
+          Name: 'AA',
+          HP: 0.2,
+          Organization: 0,
+          RecoveryRate: 0.1,
+          Suppression: 0,
+          SoftAttack: 2.4,
+          HardAttack: 9,
+          Defense: 2.4,
+          Breakthrough: 0.6,
+          Pierce: 88,
+          AirAttack: 35.2,
+          SupplyUse: 0.1,
+          Armor: 0,
+          ProductionCost: 120,
         });
     } else if (Company === 'clear') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -2517,7 +2636,11 @@ export class AppComponent implements OnInit {
       this.HardAttack = Math.floor(this.HardAttack * 100) / 100;
       this.RecoveryRate = Math.floor(this.RecoveryRate * 100) / 100;
       this.Organization = AvgOrganization;
-      this.MaxSpeed = Speed;
+      if (BattalionNumber === 0) {
+        this.MaxSpeed = 0;
+      } else {
+        this.MaxSpeed = Speed;
+      }
       this.SupplyUse = Math.floor(this.SupplyUse * 100) / 100;
       this.Piercing = Math.floor(((this.Piercing / (BattalionNumber + CompanyNumber)) * 0.6 + MaxPiercing * 0.4) * 100) / 100;
       this.Armor = Math.floor(((this.Armor / (BattalionNumber + + CompanyNumber)) * 0.7 + MaxArmor * 0.3) * 100) / 100;

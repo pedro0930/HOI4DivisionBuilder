@@ -386,17 +386,27 @@
         <h4 class="modal-title" id="modal-company-title">{{"SelectSupport" | translate}}</h4>
       </div>
       <div class="modal-body">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'Recon'" (click)="modal.close('Recon')" type="image" src="assets/img/Recon.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'AA'" (click)="modal.close('AA')" type="image" src="assets/img/Support_anti-air.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'rocket'" (click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'engineer'" (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'hospital'" (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'signal'" (click)="modal.close('signal')" type="image" src="assets/img/Signal_company.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'AT'" (click)="modal.close('AT')" type="image" src="assets/img/Support_anti-tank.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'arty'" (click)="modal.close('arty')" type="image" src="assets/img/Support_artillery.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'logistics'" (click)="modal.close('logistics')" type="image" src="assets/img/Logistics_company.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'maintenance'" (click)="modal.close('maintenance')" type="image" src="assets/img/Maintenance_company.png">
-          <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'MP'" (click)="modal.close('MP')" type="image" src="assets/img/Military_Police.png">
+          <input (click)="modal.close('Recon')" type="image" src="assets/img/Recon.png">
+          <input *ngIf="ArtilleryTechLevel == 1934" (click)="modal.close('AA')" type="image" src="assets/img/Support_anti-air.png">
+          <input *ngIf="ArtilleryTechLevel == 1939" (click)="modal.close('AA39')" type="image" src="assets/img/Support_anti-air.png">
+          <input *ngIf="ArtilleryTechLevel == 1942" (click)="modal.close('AA42')" type="image" src="assets/img/Support_anti-air.png">
+
+          <input *ngIf="ArtilleryTechLevel == 1934 || ArtilleryTechLevel == 1939"(click)="modal.close('rocket')" type="image" src="assets/img/Support_rocket_artillery.png">
+          <input *ngIf="ArtilleryTechLevel == 1942"(click)="modal.close('rocket43')" type="image" src="assets/img/Support_rocket_artillery.png">
+          <input (click)="modal.close('engineer')" type="image" src="assets/img/Engineer.png">
+          <input (click)="modal.close('hospital')" type="image" src="assets/img/Field_hospital.png">
+          <input (click)="modal.close('signal')" type="image" src="assets/img/Signal_company.png">
+
+          <input *ngIf="ArtilleryTechLevel == 1934" (click)="modal.close('AT')" type="image" src="assets/img/Support_anti-tank.png">
+          <input *ngIf="ArtilleryTechLevel == 1939" (click)="modal.close('AT39')" type="image" src="assets/img/Support_anti-tank.png">
+          <input *ngIf="ArtilleryTechLevel == 1942" (click)="modal.close('AT42')" type="image" src="assets/img/Support_anti-tank.png">
+
+          <input *ngIf="ArtilleryTechLevel == 1934" (click)="modal.close('arty')" type="image" src="assets/img/Support_artillery.png">
+          <input *ngIf="ArtilleryTechLevel == 1939" (click)="modal.close('arty39')" type="image" src="assets/img/Support_artillery.png">
+          <input *ngIf="ArtilleryTechLevel == 1942" (click)="modal.close('arty42')" type="image" src="assets/img/Support_artillery.png">
+          <input (click)="modal.close('logistics')" type="image" src="assets/img/Logistics_company.png">
+          <input (click)="modal.close('maintenance')" type="image" src="assets/img/Maintenance_company.png">
+          <input (click)="modal.close('MP')" type="image" src="assets/img/Military_Police.png">
         
           <input *ngIf="SupportCompanies[SelectedCompanySlotId].Name != 'empty'" (click)="modal.close('clear')" type="image" src="assets/img/empty.jpg">
         </div>
