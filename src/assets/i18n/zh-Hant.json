@@ -15,7 +15,7 @@
     "Defense": "防禦",
     "Reconnaissance": "偵查力",
     "Breakthrough": "突破",
-    "Suppression": "壓制",
+    "Suppression": "鎮壓",
     "Armor": "裝甲",
     "Supply_use": "補給需求",
     "Piercing": "穿甲",
@@ -42,5 +42,12 @@
     "Infantry": "步兵類",
     "Mobile": "機動類",
     "Armored": "裝甲類",
-    "ArmoredVariant": "裝甲延伸類"
+    "ArmoredVariant": "裝甲延伸類",
+    "InfantryTech": "步兵科技等級",
+    "ArtilleryTech": "火炮科技等級",
+    "MechTech": "機械化步兵等級",
+    "LightTankTech": "輕戰車等級 (包含延伸類)",
+    "MediumTankTech": "中戰車等級 (包含延伸類)",
+    "HeavyTankTech": "重戰車等級 (包含延伸類)",
+    "VariantNote": "戰車延伸版本等級由戰車科技等級決定"
   }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { registerLocaleData } from '@angular/common';
 import { TranslateService } from './translate.service';
-
 
 @Component({
   selector: 'app-root',
@@ -12,9 +11,7 @@ import { TranslateService } from './translate.service';
 })
 export class AppComponent implements OnInit {
   constructor(private modalService: NgbModal, private translate: TranslateService) {
-    translate.use('en').then(() => {
-      console.log(translate.data);
-    });
+    translate.use('en').then(() => {});
   }
 
   closeResult: any;
@@ -46,7 +43,23 @@ export class AppComponent implements OnInit {
   SupportCompanies: any[];
   LineBattalions: any[];
 
+  InfantryTechLevel: number;
+  ArtilleryTechLevel: number;
+  MechTechLevel: number;
+  ATTechLevel: number;
+  AATechLevel: number;
+  RocketTechLevel: number;
+  LightTankLevel: number;
+  MediumTankLevel: number;
+  HeavyTankLevel: number;
+
   ngOnInit() {
+    this.ChangeInfantryTechLevel('1918');
+    this.ChangeArtilleryTechLevel('1934');
+    this.ChangeMechTechLevel('1940');
+    this.ChangeLightTankLevel('1934');
+    this.ChangeMediumTankLevel('1939');
+    this.ChangeHeavyTankLevel('1934');
     this.Background = Math.floor(Math.random() * Math.floor(6));
     this.SelectedDoctrine = 'None';
     this.SAPerProduction = 0;
@@ -66,7 +79,6 @@ export class AppComponent implements OnInit {
     this.Armor = 0;
     this.Piercing = 0;
     this.CombatWidth = 0;
-
     this.SupportCompanies = [{Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'}, {Name: 'empty'} ];
     this.LineBattalions = [];
     for (let i = 0; i < 25; i++) {
@@ -84,6 +96,7 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < 25; i++) {
       this.LineBattalions.push({Name: 'empty'});
     }
+    this.SelectedDoctrine = 'None';
     this.UpdateDivisionStats();
   }
 
@@ -298,10 +311,70 @@ export class AppComponent implements OnInit {
         HardAttack: 0.5,
         Defense: 20,
         Breakthrough: 2,
+        Pierce: 1,
+        AirAttack: 0,
+        SupplyUse: 0.07,
+        ProductionCost: 40,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Infantry36') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Infantry',
+        Type: 'Infantry',
+        HP: 25,
+        Organization: 60,
+        RecoveryRate: 0.3,
+        Suppression: 1,
+        SoftAttack: 6,
+        HardAttack: 1,
+        Defense: 23.1,
+        Breakthrough: 3.2,
+        Pierce: 4,
+        AirAttack: 0,
+        SupplyUse: 0.07,
+        ProductionCost: 50,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Infantry39') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Infantry',
+        Type: 'Infantry',
+        HP: 25,
+        Organization: 60,
+        RecoveryRate: 0.3,
+        Suppression: 1,
+        SoftAttack: 9.5,
+        HardAttack: 1.5,
+        Defense: 30.8,
+        Breakthrough: 4.4,
         Pierce: 5,
         AirAttack: 0,
         SupplyUse: 0.07,
-        ProductionCost: 30,
+        ProductionCost: 60,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Infantry42') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Infantry',
+        Type: 'Infantry',
+        HP: 25,
+        Organization: 60,
+        RecoveryRate: 0.3,
+        Suppression: 1,
+        SoftAttack: 13.2,
+        HardAttack: 2.5,
+        Defense: 40.8,
+        Breakthrough: 6,
+        Pierce: 20,
+        AirAttack: 0,
+        SupplyUse: 0.07,
+        ProductionCost: 70,
         Speed: 4,
         Armor: 0,
         CombatWidth: 2
@@ -326,6 +399,46 @@ export class AppComponent implements OnInit {
         Armor: 0,
         CombatWidth: 3
       });
+    } else if (Battalion === 'Artillery39') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Artillery',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 33,
+        HardAttack: 2,
+        Defense: 15,
+        Breakthrough: 7,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 144,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Artillery42') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Artillery',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 44.2,
+        HardAttack: 2,
+        Defense: 18,
+        Breakthrough: 8,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 162,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 3
+      });
     } else if (Battalion === 'Rocket_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Rocket-artillery',
@@ -335,13 +448,33 @@ export class AppComponent implements OnInit {
         RecoveryRate: 0.1,
         Suppression: 0,
         SoftAttack: 40,
-        HardAttack: 2,
+        HardAttack: 1,
         Defense: 12,
         Breakthrough: 9,
         Pierce: 2,
         AirAttack: 0,
         SupplyUse: 0.2,
         ProductionCost: 144,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Rocket_artillery43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Rocket-artillery',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 49.4,
+        HardAttack: 1,
+        Defense: 15,
+        Breakthrough: 12,
+        Pierce: 2,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 180,
         Speed: 4,
         Armor: 0,
         CombatWidth: 3
@@ -364,7 +497,47 @@ export class AppComponent implements OnInit {
         ProductionCost: 144,
         Speed: 4,
         Armor: 0,
-        CombatWidth: 3
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Anti-tank40') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Anti-tank',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 4,
+        HardAttack: 24.2,
+        Defense: 4,
+        Breakthrough: 0,
+        Pierce: 105.6,
+        AirAttack: 0,
+        SupplyUse: 0.1,
+        ProductionCost: 180,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Anti-tank43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Anti-tank',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 4,
+        HardAttack: 39,
+        Defense: 4,
+        Breakthrough: 6,
+        Pierce: 151.2,
+        AirAttack: 0,
+        SupplyUse: 0.1,
+        ProductionCost: 216,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 1
       });
     } else if (Battalion === 'Anti-Air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -379,9 +552,49 @@ export class AppComponent implements OnInit {
         Defense: 4,
         Breakthrough: 1,
         Pierce: 25,
-        AirAttack: 17,
+        AirAttack: 19,
         SupplyUse: 0.1,
         ProductionCost: 120,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Anti-Air40') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Anti-Air',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 3.5,
+        HardAttack: 11,
+        Defense: 4,
+        Breakthrough: 1,
+        Pierce: 60,
+        AirAttack: 27.5,
+        SupplyUse: 0.1,
+        ProductionCost: 150,
+        Speed: 4,
+        Armor: 0,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Anti-Air43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Anti-Air',
+        Type: 'Artillery',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 4,
+        HardAttack: 15,
+        Defense: 4,
+        Breakthrough: 1,
+        Pierce: 88,
+        AirAttack: 41.6,
+        SupplyUse: 0.1,
+        ProductionCost: 180,
         Speed: 4,
         Armor: 0,
         CombatWidth: 1
@@ -515,16 +728,56 @@ export class AppComponent implements OnInit {
         Organization: 60,
         RecoveryRate: 0.3,
         Suppression: 1,
-        SoftAttack: 3.3,
-        HardAttack: 2.5,
-        Defense: 46,
-        Breakthrough: 6,
-        Pierce: 1,
+        SoftAttack: 10.8,
+        HardAttack: 7.5,
+        Defense: 62.1,
+        Breakthrough: 9.2,
+        Pierce: 16,
         AirAttack: 0,
-        SupplyUse: 0.14,
-        ProductionCost: 530,
-        Speed: 12,
+        SupplyUse: 0.18,
+        ProductionCost: 460,
+        Speed: 8,
         Armor: 10,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Mechanized42') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Mechanized',
+        Type: 'Motorized',
+        HP: 30,
+        Organization: 60,
+        RecoveryRate: 0.3,
+        Suppression: 1,
+        SoftAttack: 14.4,
+        HardAttack: 10.5,
+        Defense: 76.8,
+        Breakthrough: 12,
+        Pierce: 52,
+        AirAttack: 0,
+        SupplyUse: 0.18,
+        ProductionCost: 570,
+        Speed: 10,
+        Armor: 15,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Mechanized44') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Mechanized',
+        Type: 'Motorized',
+        HP: 30,
+        Organization: 60,
+        RecoveryRate: 0.3,
+        Suppression: 1,
+        SoftAttack: 17.4,
+        HardAttack: 11.3,
+        Defense: 81.6,
+        Breakthrough: 13.2,
+        Pierce: 93,
+        AirAttack: 0,
+        SupplyUse: 0.18,
+        ProductionCost: 670,
+        Speed: 12,
+        Armor: 20,
         CombatWidth: 2
       });
       // Armored
@@ -536,7 +789,27 @@ export class AppComponent implements OnInit {
         Organization: 10,
         RecoveryRate: 0.3,
         Suppression: 0,
-        SoftAttack: 15,
+        SoftAttack: 8,
+        HardAttack: 4,
+        Defense: 4,
+        Breakthrough: 18,
+        Pierce: 15,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 420,
+        Speed: 6,
+        Armor: 5,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Light_tank34') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 13,
         HardAttack: 4,
         Defense: 4,
         Breakthrough: 26,
@@ -548,6 +821,46 @@ export class AppComponent implements OnInit {
         Armor: 10,
         CombatWidth: 2
       });
+    } else if (Battalion === 'Light_tank36') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 16,
+        HardAttack: 6,
+        Defense: 5,
+        Breakthrough: 36,
+        Pierce: 10,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 540,
+        Speed: 12,
+        Armor: 15,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Light_tank41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 22,
+        HardAttack: 9,
+        Defense: 6,
+        Breakthrough: 46,
+        Pierce: 50,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 600,
+        Speed: 14,
+        Armor: 30,
+        CombatWidth: 2
+      });
     } else if (Battalion === 'Medium_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Medium_tank',
@@ -556,7 +869,7 @@ export class AppComponent implements OnInit {
         Organization: 10,
         RecoveryRate: 0.3,
         Suppression: 0,
-        SoftAttack: 22.5,
+        SoftAttack: 19,
         HardAttack: 14,
         Defense: 5,
         Breakthrough: 36,
@@ -568,6 +881,46 @@ export class AppComponent implements OnInit {
         Armor: 60,
         CombatWidth: 2
       });
+    } else if (Battalion === 'Medium_tank41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 25,
+        HardAttack: 19,
+        Defense: 7,
+        Breakthrough: 51,
+        Pierce: 81,
+        AirAttack: 0,
+        SupplyUse: 0.22,
+        ProductionCost: 650,
+        Speed: 9,
+        Armor: 80,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Medium_tank43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 32,
+        HardAttack: 24,
+        Defense: 9,
+        Breakthrough: 66,
+        Pierce: 91,
+        AirAttack: 0,
+        SupplyUse: 0.22,
+        ProductionCost: 700,
+        Speed: 10,
+        Armor: 90,
+        CombatWidth: 2
+      });
     } else if (Battalion === 'Heavy_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Heavy_tank',
@@ -576,7 +929,7 @@ export class AppComponent implements OnInit {
         Organization: 10,
         RecoveryRate: 0.3,
         Suppression: 0,
-        SoftAttack: 12,
+        SoftAttack: 15,
         HardAttack: 12,
         Defense: 6,
         Breakthrough: 36,
@@ -586,6 +939,46 @@ export class AppComponent implements OnInit {
         ProductionCost: 1000,
         Speed: 5,
         Armor: 70,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Heavy_tank41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 27,
+        HardAttack: 30,
+        Defense: 8,
+        Breakthrough: 52,
+        Pierce: 111,
+        AirAttack: 0,
+        SupplyUse: 0.30,
+        ProductionCost: 1080,
+        Speed: 6,
+        Armor: 110,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Heavy_tank43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank',
+        Type: 'Armored',
+        HP: 2,
+        Organization: 10,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 35,
+        HardAttack: 40,
+        Defense: 9,
+        Breakthrough: 67,
+        Pierce: 131,
+        AirAttack: 0,
+        SupplyUse: 0.30,
+        ProductionCost: 1200,
+        Speed: 6,
+        Armor: 130,
         CombatWidth: 2
       });
     } else if (Battalion === 'Super_heavy') {
@@ -637,16 +1030,56 @@ export class AppComponent implements OnInit {
         Organization: 0,
         RecoveryRate: 0.1,
         Suppression: 0,
-        SoftAttack: 42,
+        SoftAttack: 34,
         HardAttack: 0.5,
         Defense: 4,
         Breakthrough: 2,
         Pierce: 4,
         AirAttack: 0,
         SupplyUse: 0.4,
-        ProductionCost: 192,
+        ProductionCost: 288,
         Speed: 10,
         Armor: 5,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Light_tank_artillery36') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_artillery',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 42,
+        HardAttack: 1,
+        Defense: 5,
+        Breakthrough: 2.5,
+        Pierce: 4,
+        AirAttack: 0,
+        SupplyUse: 0.4,
+        ProductionCost: 324,
+        Speed: 12,
+        Armor: 10,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Light_tank_artillery41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_artillery',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 46,
+        HardAttack: 1.5,
+        Defense: 7,
+        Breakthrough: 3.5,
+        Pierce: 4,
+        AirAttack: 0,
+        SupplyUse: 0.4,
+        ProductionCost: 360,
+        Speed: 14,
+        Armor: 25,
         CombatWidth: 3
       });
     } else if (Battalion === 'Light_tank_anti-tank') {
@@ -664,9 +1097,49 @@ export class AppComponent implements OnInit {
         Pierce: 50,
         AirAttack: 0,
         SupplyUse: 0.2,
-        ProductionCost: 180,
-        Speed: 12,
+        ProductionCost: 240,
+        Speed: 10,
         Armor: 10,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Light_tank_anti-tank36') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-tank',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 6,
+        HardAttack: 16,
+        Defense: 5,
+        Breakthrough: 1.3,
+        Pierce: 77,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 270,
+        Speed: 12,
+        Armor: 15,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Light_tank_anti-tank41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-tank',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 8,
+        HardAttack: 24,
+        Defense: 7,
+        Breakthrough: 1.8,
+        Pierce: 99,
+        AirAttack: 0,
+        SupplyUse: 0.2,
+        ProductionCost: 300,
+        Speed: 14,
+        Armor: 30,
         CombatWidth: 2
       });
     } else if (Battalion === 'Light_tank_anti-air') {
@@ -680,13 +1153,53 @@ export class AppComponent implements OnInit {
         SoftAttack: 3,
         HardAttack: 1,
         Defense: 2,
-        Breakthrough: 2.2,
+        Breakthrough: 2,
         Pierce: 5,
         AirAttack: 15,
-        SupplyUse: 0.2,
+        SupplyUse: 0.1,
         ProductionCost: 150,
-        Speed: 12,
+        Speed: 10,
         Armor: 5,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Light_tank_anti-air36') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-air',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 4.5,
+        HardAttack: 1.5,
+        Defense: 2.5,
+        Breakthrough: 2.5,
+        Pierce: 20,
+        AirAttack: 17,
+        SupplyUse: 0.1,
+        ProductionCost: 165,
+        Speed: 12,
+        Armor: 10,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Light_tank_anti-air41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Light_tank_anti-air',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 3,
+        HardAttack: 1,
+        Defense: 2,
+        Breakthrough: 2.2,
+        Pierce: 35,
+        AirAttack: 32,
+        SupplyUse: 0.1,
+        ProductionCost: 180,
+        Speed: 14,
+        Armor: 25,
         CombatWidth: 1
       });
       // Medium variant
@@ -698,16 +1211,56 @@ export class AppComponent implements OnInit {
         Organization: 0,
         RecoveryRate: 0.1,
         Suppression: 0,
-        SoftAttack: 70,
+        SoftAttack: 42,
         HardAttack: 1,
-        Defense: 12,
-        Breakthrough: 6,
+        Defense: 5,
+        Breakthrough: 3,
         Pierce: 5,
         AirAttack: 0,
         SupplyUse: 0.44,
-        ProductionCost: 240,
+        ProductionCost: 432,
         Speed: 8,
-        Armor: 35,
+        Armor: 45,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Medium_tank_artillery41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_artillery',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 50,
+        HardAttack: 1.5,
+        Defense: 6,
+        Breakthrough: 3,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.44,
+        ProductionCost: 468,
+        Speed: 9,
+        Armor: 50,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Medium_tank_artillery43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_artillery',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 55,
+        HardAttack: 2,
+        Defense: 7,
+        Breakthrough: 4,
+        Pierce: 5,
+        AirAttack: 0,
+        SupplyUse: 0.44,
+        ProductionCost: 504,
+        Speed: 10,
+        Armor: 58,
         CombatWidth: 3
       });
     } else if (Battalion === 'Medium_tank_anti-tank') {
@@ -730,6 +1283,46 @@ export class AppComponent implements OnInit {
         Armor: 60,
         CombatWidth: 2
       });
+    } else if (Battalion === 'Medium_tank_anti-tank41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_anti-tank',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 6,
+        HardAttack: 26,
+        Defense: 6,
+        Breakthrough: 1.5,
+        Pierce: 110,
+        AirAttack: 0,
+        SupplyUse: 0.22,
+        ProductionCost: 312,
+        Speed: 9,
+        Armor: 80,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Medium_tank_anti-tank43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_anti-tank',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 8,
+        HardAttack: 32,
+        Defense: 7,
+        Breakthrough: 1.8,
+        Pierce: 120,
+        AirAttack: 0,
+        SupplyUse: 0.22,
+        ProductionCost: 336,
+        Speed: 10,
+        Armor: 90,
+        CombatWidth: 2
+      });
     } else if (Battalion === 'Medium_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Medium_tank_anti-air',
@@ -748,7 +1341,47 @@ export class AppComponent implements OnInit {
         ProductionCost: 144,
         Speed: 8,
         Armor: 45,
-        CombatWidth: 2
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Medium_tank_anti-air41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_anti-air',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 9,
+        HardAttack: 4.5,
+        Defense: 3,
+        Breakthrough: 3,
+        Pierce: 60,
+        AirAttack: 32,
+        SupplyUse: 0.1,
+        ProductionCost: 156,
+        Speed: 9,
+        Armor: 50,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Medium_tank_anti-air43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Medium_tank_anti-air',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 11.2,
+        HardAttack: 6,
+        Defense: 3.5,
+        Breakthrough: 3.5,
+        Pierce: 70,
+        AirAttack: 43,
+        SupplyUse: 0.1,
+        ProductionCost: 168,
+        Speed: 8,
+        Armor: 58,
+        CombatWidth: 1
       });
       // Heavy Variant
     } else if (Battalion === 'Heavy_tank_artillery') {
@@ -759,16 +1392,56 @@ export class AppComponent implements OnInit {
         Organization: 0,
         RecoveryRate: 0.1,
         Suppression: 0,
-        SoftAttack: 70,
+        SoftAttack: 55,
         HardAttack: 1,
         Defense: 4,
         Breakthrough: 2,
         Pierce: 8,
-        AirAttack: 22,
-        SupplyUse: 0.1,
+        AirAttack: 0,
+        SupplyUse: 0.6,
         ProductionCost: 600,
         Speed: 5,
         Armor: 45,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Heavy_tank_artillery41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_artillery',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 74,
+        HardAttack: 2,
+        Defense: 6,
+        Breakthrough: 3,
+        Pierce: 8,
+        AirAttack: 0,
+        SupplyUse: 0.6,
+        ProductionCost: 648,
+        Speed: 6,
+        Armor: 68,
+        CombatWidth: 3
+      });
+    } else if (Battalion === 'Heavy_tank_artillery43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_artillery',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.1,
+        Suppression: 0,
+        SoftAttack: 80,
+        HardAttack: 2.5,
+        Defense: 7,
+        Breakthrough: 3.5,
+        Pierce: 8,
+        AirAttack: 0,
+        SupplyUse: 0.6,
+        ProductionCost: 720,
+        Speed: 6,
+        Armor: 90,
         CombatWidth: 3
       });
     } else if (Battalion === 'Heavy_tank_anti-tank') {
@@ -791,6 +1464,46 @@ export class AppComponent implements OnInit {
         Armor: 70,
         CombatWidth: 2
       });
+    } else if (Battalion === 'Heavy_tank_anti-tank41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_anti-tank',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 8,
+        HardAttack: 42,
+        Defense: 6,
+        Breakthrough: 1.5,
+        Pierce: 140,
+        AirAttack: 0,
+        SupplyUse: 0.3,
+        ProductionCost: 540,
+        Speed: 6,
+        Armor: 110,
+        CombatWidth: 2
+      });
+    } else if (Battalion === 'Heavy_tank_anti-tank43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_anti-tank',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 10,
+        HardAttack: 60,
+        Defense: 7,
+        Breakthrough: 1.8,
+        Pierce: 160,
+        AirAttack: 0,
+        SupplyUse: 0.3,
+        ProductionCost: 600,
+        Speed: 6,
+        Armor: 130,
+        CombatWidth: 2
+      });
     } else if (Battalion === 'Heavy_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
         Name: 'Heavy_tank_anti-air',
@@ -799,16 +1512,56 @@ export class AppComponent implements OnInit {
         Organization: 0,
         RecoveryRate: 0.3,
         Suppression: 0,
-        SoftAttack: 6.75,
+        SoftAttack: 6.8,
         HardAttack: 4,
         Defense: 2,
         Breakthrough: 2,
-        Pierce: 96,
+        Pierce: 25,
         AirAttack: 17,
         SupplyUse: 0.1,
         ProductionCost: 200,
         Speed: 5,
         Armor: 45,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Heavy_tank_anti-air41') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_anti-air',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 9,
+        HardAttack: 4.5,
+        Defense: 3,
+        Breakthrough: 3,
+        Pierce: 60,
+        AirAttack: 33,
+        SupplyUse: 0.1,
+        ProductionCost: 216,
+        Speed: 6,
+        Armor: 68,
+        CombatWidth: 1
+      });
+    } else if (Battalion === 'Heavy_tank_anti-air43') {
+      this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
+        Name: 'Heavy_tank_anti-air',
+        Type: 'ArmoredVariant',
+        HP: 0.6,
+        Organization: 0,
+        RecoveryRate: 0.3,
+        Suppression: 0,
+        SoftAttack: 11.2,
+        HardAttack: 6,
+        Defense: 3.5,
+        Breakthrough: 3.5,
+        Pierce: 88,
+        AirAttack: 44,
+        SupplyUse: 0.1,
+        ProductionCost: 240,
+        Speed: 6,
+        Armor: 90,
         CombatWidth: 1
       });
       // Super Heavy Variant
@@ -942,8 +1695,8 @@ export class AppComponent implements OnInit {
   }
 
   UpdateDivisionStats() {
-    // Clear all stats due to how clearing units currently work
-    let Speed = 10;
+
+    let Speed = 999;
     let MaxPiercing = 0;
     let MaxArmor = 0;
     let BattalionNumber = 0;
@@ -951,6 +1704,8 @@ export class AppComponent implements OnInit {
     let AvgOrganization = 0;
     let HasRecon = false;
 
+    // Clear all stats due to how clearing units currently work
+    this.Reconnaissance = 0;
     this.ProductionCost = 0;
     this.SAPerProduction = 0;
     this.MaxSpeed = 0;
@@ -1693,7 +2448,26 @@ export class AppComponent implements OnInit {
     console.log(this.SupportCompanies);
   }
   Doctrine(Doctrine) {
-    this.clear();
     this.SelectedDoctrine = Doctrine;
+    this.UpdateDivisionStats();
+  }
+
+  ChangeInfantryTechLevel(year) {
+    this.InfantryTechLevel = year;
+  }
+  ChangeArtilleryTechLevel(year) {
+    this.ArtilleryTechLevel = year;
+  }
+  ChangeMechTechLevel(year) {
+    this.MechTechLevel = year;
+  }
+  ChangeLightTankLevel(year) {
+    this.LightTankLevel = year;
+  }
+  ChangeMediumTankLevel(year) {
+    this.MediumTankLevel = year;
+  }
+  ChangeHeavyTankLevel(year) {
+    this.HeavyTankLevel = year;
   }
 }

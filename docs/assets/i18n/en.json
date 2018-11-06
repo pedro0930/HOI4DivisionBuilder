@@ -42,5 +42,12 @@
     "Infantry": "Infantry",
     "Mobile": "Mobile",
     "Armored": "Armored",
-    "ArmoredVariant": "Armored Variant"
+    "ArmoredVariant": "Armored Variant",
+    "InfantryTech": "Infantry Tech Level",
+    "ArtilleryTech": "Artillery Tech Level",
+    "MechTech": "Mechanized Tech Level",
+    "LightTankTech": "Light Tank Tech (affects variants)",
+    "MediumTankTech": "Medium Tank Tech (affects variants)",
+    "HeavyTankTech": "Heavy Tank Tech (affects variants)",
+    "VariantNote": "Note: Variant level are tied to tank level."
   }
