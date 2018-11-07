@@ -56,12 +56,12 @@ export class AppComponent implements OnInit {
   HardnessDisplay: number;
 
   ngOnInit() {
-    this.ChangeInfantryTechLevel('1918');
-    this.ChangeArtilleryTechLevel('1934');
-    this.ChangeMechTechLevel('1940');
-    this.ChangeLightTankLevel('1934');
-    this.ChangeMediumTankLevel('1939');
-    this.ChangeHeavyTankLevel('1934');
+    this.InfantryTechLevel = 1918;
+    this.ArtilleryTechLevel = 1943;
+    this.MechTechLevel = 1940;
+    this.LightTankLevel = 1934;
+    this.MediumTankLevel = 1939;
+    this.HeavyTankLevel = 1934;
     this.Background = Math.floor(Math.random() * Math.floor(6));
     this.Hardness = 0;
     this.SelectedDoctrine = 'None';
@@ -1904,7 +1904,6 @@ export class AppComponent implements OnInit {
   }
 
   UpdateDivisionStats() {
-
     let Speed = 999;
     let MaxPiercing = 0;
     let MaxArmor = 0;
@@ -2665,7 +2664,7 @@ export class AppComponent implements OnInit {
 
     console.log(this.SupportCompanies);
   }
-  Doctrine(Doctrine) {
+  ChangeDoctrine(Doctrine) {
     this.SelectedDoctrine = Doctrine;
     this.UpdateDivisionStats();
   }
@@ -2688,4 +2687,5 @@ export class AppComponent implements OnInit {
   ChangeHeavyTankLevel(year) {
     this.HeavyTankLevel = year;
   }
+
 }
