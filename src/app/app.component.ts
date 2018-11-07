@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.InfantryTechLevel = 1918;
-    this.ArtilleryTechLevel = 1943;
+    this.ArtilleryTechLevel = 1934;
     this.MechTechLevel = 1940;
     this.LightTankLevel = 1934;
     this.MediumTankLevel = 1939;
