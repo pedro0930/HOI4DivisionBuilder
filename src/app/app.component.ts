@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   CombatWidth: number;
   ProductionCost: number;
   Hardness: number;
+  Manpower: number;
 
   SAPerProduction: number;
 
@@ -63,6 +64,8 @@ export class AppComponent implements OnInit {
     this.MediumTankLevel = 1939;
     this.HeavyTankLevel = 1934;
     this.Background = Math.floor(Math.random() * Math.floor(6));
+
+    this.Manpower = 0;
     this.Hardness = 0;
     this.SelectedDoctrine = 'None';
     this.SAPerProduction = 0;
@@ -138,6 +141,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.16,
         Armor: 0,
         ProductionCost: 42,
+        Manpower: 300
       });
     } else if (Company === 'arty39') {
         this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -155,6 +159,7 @@ export class AppComponent implements OnInit {
           SupplyUse: 0.16,
           Armor: 0,
           ProductionCost: 48,
+          Manpower: 300
         });
       } else if (Company === 'arty42') {
         this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -172,6 +177,7 @@ export class AppComponent implements OnInit {
           SupplyUse: 0.16,
           Armor: 0,
           ProductionCost: 54,
+          Manpower: 300
         });
     } else if (Company === 'AT') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -189,6 +195,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.08,
         Armor: 0,
         ProductionCost: 96,
+        Manpower: 300
       });
     } else if (Company === 'AT39') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -206,6 +213,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.08,
         Armor: 0,
         ProductionCost: 120,
+        Manpower: 300
       });
     } else if (Company === 'AT42') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -223,6 +231,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.08,
         Armor: 0,
         ProductionCost: 144,
+        Manpower: 300
       });
     } else if (Company === 'hospital') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -240,6 +249,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.05,
         Armor: 0,
         ProductionCost: 170,
+        Manpower: 500
       });
     } else if (Company === 'engineer') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -257,6 +267,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.1,
         Armor: 0,
         ProductionCost: 123,
+        Manpower: 300
       });
     } else if (Company === 'signal') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -274,6 +285,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.02,
         Armor: 0,
         ProductionCost: 225,
+        Manpower: 500
       });
     } else if (Company === 'rocket') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -291,6 +303,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.16,
         Armor: 0,
         ProductionCost: 96,
+        Manpower: 300
       });
     } else if (Company === 'rocket43') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -308,6 +321,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.16,
         Armor: 0,
         ProductionCost: 120,
+        Manpower: 300
       });
     } else if (Company === 'logistics') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -325,6 +339,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.05,
         Armor: 0,
         ProductionCost: 105,
+        Manpower: 500
       });
     } else if (Company === 'maintenance') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -342,6 +357,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.03,
         Armor: 0,
         ProductionCost: 100,
+        Manpower: 500
       });
     } else if (Company === 'MP') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -359,6 +375,7 @@ export class AppComponent implements OnInit {
         SupplyUse: 0.02,
         Armor: 0,
         ProductionCost: 52,
+        Manpower: 500
       });
     } else if (Company === 'Recon') {
         this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -376,6 +393,7 @@ export class AppComponent implements OnInit {
           SupplyUse: 0.02,
           Armor: 0,
           ProductionCost: 52,
+          Manpower: 500
         });
       } else if (Company === 'AA') {
         this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -393,6 +411,7 @@ export class AppComponent implements OnInit {
           SupplyUse: 0.1,
           Armor: 0,
           ProductionCost: 80,
+          Manpower: 300
         });
       } else if (Company === 'AA39') {
         this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -410,6 +429,7 @@ export class AppComponent implements OnInit {
           SupplyUse: 0.1,
           Armor: 0,
           ProductionCost: 100,
+          Manpower: 300
         });
       } else if (Company === 'AA42') {
         this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -427,6 +447,7 @@ export class AppComponent implements OnInit {
           SupplyUse: 0.1,
           Armor: 0,
           ProductionCost: 120,
+          Manpower: 300
         });
     } else if (Company === 'clear') {
       this.SupportCompanies.splice(this.SelectedCompanySlotId, 1, {
@@ -458,7 +479,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Infantry36') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -479,7 +501,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Infantry39') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -500,7 +523,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Infantry42') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -521,7 +545,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -542,7 +567,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 3,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Artillery39') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -563,7 +589,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 3,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Artillery42') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -584,7 +611,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 3,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Rocket_artillery') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -605,7 +633,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 3,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Rocket_artillery43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -626,7 +655,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 3,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -647,7 +677,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 1,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Anti-tank40') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -668,7 +699,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 1,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Anti-tank43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -689,7 +721,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 1,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Anti-Air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -710,7 +743,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 1,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Anti-Air40') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -731,7 +765,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 1,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Anti-Air43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -752,7 +787,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 1,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Marine') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -773,7 +809,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Mountaineers') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -794,7 +831,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Paratroop') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -815,7 +853,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
       // Mobile
     } else if (Battalion === 'Motorized') {
@@ -837,7 +876,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 10
+        Hardness: 10,
+        Manpower: 1200
       });
     } else if (Battalion === 'Cavalry') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -858,7 +898,8 @@ export class AppComponent implements OnInit {
         Speed: 6.4,
         Armor: 0,
         CombatWidth: 2,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 1000
       });
     } else if (Battalion === 'Motorized_rocket') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -879,7 +920,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 0,
         CombatWidth: 3,
-        Hardness: 0
+        Hardness: 0,
+        Manpower: 500
       });
     } else if (Battalion === 'Mechanized') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -900,7 +942,8 @@ export class AppComponent implements OnInit {
         Speed: 8,
         Armor: 10,
         CombatWidth: 2,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 1200
       });
     } else if (Battalion === 'Mechanized42') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -921,7 +964,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 15,
         CombatWidth: 2,
-        Hardness: 60
+        Hardness: 60,
+        Manpower: 1200
       });
     } else if (Battalion === 'Mechanized44') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -942,7 +986,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 20,
         CombatWidth: 2,
-        Hardness: 70
+        Hardness: 70,
+        Manpower: 1200
       });
       // Armored
     } else if (Battalion === 'Light_tank') {
@@ -964,7 +1009,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 5,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank34') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -985,7 +1031,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 10,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank36') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1006,7 +1053,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 15,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1027,7 +1075,8 @@ export class AppComponent implements OnInit {
         Speed: 14,
         Armor: 30,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1069,7 +1118,8 @@ export class AppComponent implements OnInit {
         Speed: 9,
         Armor: 80,
         CombatWidth: 2,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1090,7 +1140,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 90,
         CombatWidth: 2,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1111,7 +1162,8 @@ export class AppComponent implements OnInit {
         Speed: 5,
         Armor: 70,
         CombatWidth: 2,
-        Hardness: 95
+        Hardness: 95,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1132,7 +1184,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 110,
         CombatWidth: 2,
-        Hardness: 95
+        Hardness: 95,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1153,7 +1206,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 130,
         CombatWidth: 2,
-        Hardness: 95
+        Hardness: 95,
+        Manpower: 500
       });
     } else if (Battalion === 'Super_heavy') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1174,7 +1228,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 145,
         CombatWidth: 2,
-        Hardness: 99
+        Hardness: 99,
+        Manpower: 500
       });
     } else if (Battalion === 'Modern_tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1195,7 +1250,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 130,
         CombatWidth: 2,
-        Hardness: 98
+        Hardness: 98,
+        Manpower: 500
       });
       // Light armored variant
     } else if (Battalion === 'Light_tank_artillery') {
@@ -1217,7 +1273,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 5,
         CombatWidth: 3,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_artillery36') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1238,7 +1295,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 10,
         CombatWidth: 3,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_artillery41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1259,7 +1317,8 @@ export class AppComponent implements OnInit {
         Speed: 14,
         Armor: 25,
         CombatWidth: 3,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1280,7 +1339,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 10,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_anti-tank36') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1301,7 +1361,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 15,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_anti-tank41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1322,7 +1383,8 @@ export class AppComponent implements OnInit {
         Speed: 14,
         Armor: 30,
         CombatWidth: 2,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1343,7 +1405,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 5,
         CombatWidth: 1,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_anti-air36') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1364,7 +1427,8 @@ export class AppComponent implements OnInit {
         Speed: 12,
         Armor: 10,
         CombatWidth: 1,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 500
       });
     } else if (Battalion === 'Light_tank_anti-air41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1385,7 +1449,8 @@ export class AppComponent implements OnInit {
         Speed: 14,
         Armor: 25,
         CombatWidth: 1,
-        Hardness: 50
+        Hardness: 50,
+        Manpower: 500
       });
       // Medium variant
     } else if (Battalion === 'Medium_tank_artillery') {
@@ -1407,7 +1472,8 @@ export class AppComponent implements OnInit {
         Speed: 8,
         Armor: 45,
         CombatWidth: 3,
-        Hardness: 65
+        Hardness: 65,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_artillery41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1428,7 +1494,8 @@ export class AppComponent implements OnInit {
         Speed: 9,
         Armor: 50,
         CombatWidth: 3,
-        Hardness: 65
+        Hardness: 65,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_artillery43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1449,7 +1516,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 58,
         CombatWidth: 3,
-        Hardness: 65
+        Hardness: 65,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1470,7 +1538,8 @@ export class AppComponent implements OnInit {
         Speed: 8,
         Armor: 60,
         CombatWidth: 2,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_anti-tank41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1491,7 +1560,8 @@ export class AppComponent implements OnInit {
         Speed: 9,
         Armor: 80,
         CombatWidth: 2,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_anti-tank43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1512,7 +1582,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 90,
         CombatWidth: 2,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1533,7 +1604,8 @@ export class AppComponent implements OnInit {
         Speed: 8,
         Armor: 45,
         CombatWidth: 1,
-        Hardness: 65
+        Hardness: 65,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_anti-air41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1554,7 +1626,8 @@ export class AppComponent implements OnInit {
         Speed: 9,
         Armor: 50,
         CombatWidth: 1,
-        Hardness: 65
+        Hardness: 65,
+        Manpower: 500
       });
     } else if (Battalion === 'Medium_tank_anti-air43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1575,7 +1648,8 @@ export class AppComponent implements OnInit {
         Speed: 8,
         Armor: 58,
         CombatWidth: 1,
-        Hardness: 65
+        Hardness: 65,
+        Manpower: 500
       });
       // Heavy Variant
     } else if (Battalion === 'Heavy_tank_artillery') {
@@ -1597,7 +1671,8 @@ export class AppComponent implements OnInit {
         Speed: 5,
         Armor: 45,
         CombatWidth: 3,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_artillery41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1618,7 +1693,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 68,
         CombatWidth: 3,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_artillery43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1639,7 +1715,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 90,
         CombatWidth: 3,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1660,7 +1737,8 @@ export class AppComponent implements OnInit {
         Speed: 5,
         Armor: 70,
         CombatWidth: 2,
-        Hardness: 95
+        Hardness: 95,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_anti-tank41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1681,7 +1759,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 110,
         CombatWidth: 2,
-        Hardness: 95
+        Hardness: 95,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_anti-tank43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1702,7 +1781,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 130,
         CombatWidth: 2,
-        Hardness: 95
+        Hardness: 95,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1723,7 +1803,8 @@ export class AppComponent implements OnInit {
         Speed: 5,
         Armor: 45,
         CombatWidth: 1,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_anti-air41') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1744,7 +1825,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 68,
         CombatWidth: 1,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
     } else if (Battalion === 'Heavy_tank_anti-air43') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1765,7 +1847,8 @@ export class AppComponent implements OnInit {
         Speed: 6,
         Armor: 90,
         CombatWidth: 1,
-        Hardness: 80
+        Hardness: 80,
+        Manpower: 500
       });
       // Super Heavy Variant
     } else if (Battalion === 'Super_heavy_tank_artillery') {
@@ -1787,7 +1870,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 100,
         CombatWidth: 3,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
     } else if (Battalion === 'Super_heavy_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1808,7 +1892,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 145,
         CombatWidth: 2,
-        Hardness: 99
+        Hardness: 99,
+        Manpower: 500
       });
     } else if (Battalion === 'Super_heavy_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1829,7 +1914,8 @@ export class AppComponent implements OnInit {
         Speed: 4,
         Armor: 100,
         CombatWidth: 1,
-        Hardness: 90
+        Hardness: 90,
+        Manpower: 500
       });
       // Modern Variant
     } else if (Battalion === 'Modern_tank_artillery') {
@@ -1851,7 +1937,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 90,
         CombatWidth: 3,
-        Hardness: 85
+        Hardness: 85,
+        Manpower: 500
       });
     } else if (Battalion === 'Modern_tank_anti-tank') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1872,7 +1959,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 130,
         CombatWidth: 2,
-        Hardness: 98
+        Hardness: 98,
+        Manpower: 500
       });
     } else if (Battalion === 'Modern_tank_anti-air') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1893,7 +1981,8 @@ export class AppComponent implements OnInit {
         Speed: 10,
         Armor: 90,
         CombatWidth: 1,
-        Hardness: 85
+        Hardness: 85,
+        Manpower: 500
       });
     } else if (Battalion === 'clear') {
       this.LineBattalions.splice(this.SelectedBattalionSlotId, 1, {
@@ -1932,6 +2021,7 @@ export class AppComponent implements OnInit {
     this.CombatWidth = 0;
     this.Hardness = 0;
     this.HardnessDisplay = 0;
+    this.Manpower = 0;
 
     for (let i = 0; i < this.SupportCompanies.length; i++) {
       if (this.SupportCompanies[i].Name !== 'empty') {
@@ -1951,6 +2041,7 @@ export class AppComponent implements OnInit {
           this.Piercing += this.SupportCompanies[i].Pierce;
           this.ProductionCost += this.SupportCompanies[i].ProductionCost;
           this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+          this.Manpower += this.SupportCompanies[i].Manpower;
         } else if (this.SelectedDoctrine === 'SFRL') {
           this.SoftAttack += this.SupportCompanies[i].SoftAttack * 1.5;
           AvgOrganization += this.SupportCompanies[i].Organization + 20;
@@ -1962,6 +2053,7 @@ export class AppComponent implements OnInit {
           this.Piercing += this.SupportCompanies[i].Pierce;
           this.ProductionCost += this.SupportCompanies[i].ProductionCost;
           this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+          this.Manpower += this.SupportCompanies[i].Manpower;
         } else if (this.SelectedDoctrine === 'SFRR') {
           this.SoftAttack += this.SupportCompanies[i].SoftAttack * 1.6;
           AvgOrganization += this.SupportCompanies[i].Organization + 20;
@@ -1973,6 +2065,7 @@ export class AppComponent implements OnInit {
           this.Piercing += this.SupportCompanies[i].Pierce;
           this.ProductionCost += this.SupportCompanies[i].ProductionCost;
           this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+          this.Manpower += this.SupportCompanies[i].Manpower;
         } else {
           this.SoftAttack += this.SupportCompanies[i].SoftAttack;
           AvgOrganization += this.SupportCompanies[i].Organization;
@@ -1984,6 +2077,7 @@ export class AppComponent implements OnInit {
           this.Piercing += this.SupportCompanies[i].Pierce;
           this.ProductionCost += this.SupportCompanies[i].ProductionCost;
           this.RecoveryRate += this.SupportCompanies[i].RecoveryRate;
+          this.Manpower += this.SupportCompanies[i].Manpower;
         }
         if (MaxPiercing < this.SupportCompanies[i].Pierce) {
           MaxPiercing = this.SupportCompanies[i].Pierce;
@@ -2617,6 +2711,7 @@ export class AppComponent implements OnInit {
         this.Armor += this.LineBattalions[i].Armor;
         this.ProductionCost += this.LineBattalions[i].ProductionCost;
         this.Hardness += this.LineBattalions[i].Hardness;
+        this.Manpower += this.LineBattalions[i].Manpower;
         if (this.LineBattalions[i].Speed < Speed) {
           Speed = this.LineBattalions[i].Speed;
         }

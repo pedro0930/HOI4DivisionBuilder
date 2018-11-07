@@ -20,8 +20,6 @@
     "Supply_use": "Supply Use",
     "Piercing": "Piercing",
     "Combat_width": "Combat Width",
-    "Support": "Support",
-    "Line_battalion": "Line Battalions",
     "Doctrine": "Doctrine",
     "None": "None",
     "MobileWarfareL&L": "Mobile Warfare - Mobile Infantry & Desperate Defense",
@@ -50,5 +48,8 @@
     "MediumTankTech": "Medium Tank Tech (affects variants)",
     "HeavyTankTech": "Heavy Tank Tech (affects variants)",
     "VariantNote": "Note: Variant level are tied to tank level.",
-    "HardnessRating": "Hardness"
+    "HardnessRating": "Hardness",
+    "Manpower": "Manpower",
+    "Support": "Support",
+    "Line_battalion": "Line Battalions"
   }
