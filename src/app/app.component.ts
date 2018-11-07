@@ -2633,6 +2633,8 @@ export class AppComponent implements OnInit {
       this.HP = Math.floor(this.HP * 100) / 100;
       this.SoftAttack = Math.floor(this.SoftAttack * 100) / 100;
       this.HardAttack = Math.floor(this.HardAttack * 100) / 100;
+      this.Breakthrough = Math.floor(this.Breakthrough * 100) / 100;
+      this.Defense = Math.floor(this.Defense * 100) / 100;
       this.RecoveryRate = Math.floor(this.RecoveryRate * 100) / 100;
       this.Organization = AvgOrganization;
       if (BattalionNumber === 0) {
@@ -2656,7 +2658,7 @@ export class AppComponent implements OnInit {
       if (this.MaxSpeed > 4) {
         // tslint:disable-next-line:max-line-length
         if (this.SelectedDoctrine === 'MWLL' || this.SelectedDoctrine === 'MWLR' || this.SelectedDoctrine === 'MWRL' || this.SelectedDoctrine === 'MWRR') {
-          this.MaxSpeed *= 1.1;
+          this.MaxSpeed = Math.floor(this.MaxSpeed * 1.1 * 100) / 100 ;
         }
       }
     }
